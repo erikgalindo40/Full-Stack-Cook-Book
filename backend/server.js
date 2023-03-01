@@ -12,6 +12,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended:false}))
 
 app.use('/api/recipes', require('./routes/recipeRoutes'))
+app.use('/api/users', require('./routes/userRoutes'))
 
 app.use(errorHandler) //overwritten errorHandler HAS to go under routes to work properly
 

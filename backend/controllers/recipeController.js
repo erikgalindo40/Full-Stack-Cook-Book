@@ -1,11 +1,12 @@
 const asyncHandler = require("express-async-handler")
 const Recipe = require('../models/recipeModel')
+const User = require('../models/userModel')
 
 // DESC    Get All Recipes
 // ROUTE   GET /api/recipes
 // ACCESS  Private
 const getRecipes = asyncHandler(async (req,res) => {
-    const recipes = await Recipe.find()
+    const recipes = await Recipe.find({user:req.user.id})
 
     res.status(200).json(recipes)
 })
@@ -22,6 +23,7 @@ const createRecipe = asyncHandler(async (req,res) => {
         name: req.body.name,
         ingredients: req.body.ingredients,
         directions: req.body.directions,
+        user: req.user.id
     })
 
     res.status(201).json(recipe)
@@ -32,9 +34,23 @@ const createRecipe = asyncHandler(async (req,res) => {
 const updateRecipe = asyncHandler(async (req,res) => {
     const recipe = await Recipe.findById(req.params.id)
 
+    //check for recipe
     if (!recipe) {
         res.status(400)
         throw new Error('Recipe not found')
+    }
+
+    const user = await User.findById(req.user.id)
+
+    //check for user
+    if(!user) {
+        res.status(401)
+        throw new Error('User not found')
+    }
+    //compare logged in user and recipe user
+    if(recipe.user.toString()!==user.id) {
+        res.status(401)
+        throw new Error('User not authorized')
     }
 
     const updatedRecipe = await Recipe.findByIdAndUpdate(req.params.id, req.body, {new:true})
@@ -44,8 +60,29 @@ const updateRecipe = asyncHandler(async (req,res) => {
 // ROUTE   DELETE /api/recipes/:id
 // ACCESS  Private
 const deleteRecipe = asyncHandler(async (req,res) => {
+    const recipe = await Recipe.findById(req.params.id)
+
+    //check for recipe
+    if (!recipe) {
+        res.status(400)
+        throw new Error('Recipe not found')
+    }
+
+    const user = await User.findById(req.user.id)
+
+    //check for user
+    if(!user) {
+        res.status(401)
+        throw new Error('User not found')
+    }
+    //compare logged in user and recipe user
+    if(recipe.user.toString()!==user.id) {
+        res.status(401)
+        throw new Error('User not authorized')
+    }
+
     await Recipe.findByIdAndDelete(req.params.id)
-    
+
     res.status(200).json({id:req.params.id})
 })
 
