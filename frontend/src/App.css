@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+*::before {
+  margin: 0;padding: 0;box-sizing: border-box;
+}
+*::after {
+  margin: 0;padding: 0;box-sizing: border-box;
+}
+html, body, .App {
+  min-height: 100dvh;
+  min-height: 100vh;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.header {
+  background-color: rgb(138, 138, 223);
+}
+
+.footer {
+  background-color: violet;
+}
