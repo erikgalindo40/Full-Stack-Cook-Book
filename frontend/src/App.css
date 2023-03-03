@@ -15,15 +15,65 @@ html, body, .App {
 }
 
 .App {
+  background-color: rgb(209, 195, 164);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
+/********************** 
+      HEADER STYLES
+***********************/
 .header {
-  background-color: rgb(138, 138, 223);
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(209, 185, 132);
+  padding: 1em;
 }
-
+/********************** 
+      FOOTER STYLES
+***********************/
 .footer {
-  background-color: violet;
+  background-color: rgb(114, 65, 9);
+  padding: 1em;
+}
+/********************** 
+      FORM STYLES
+***********************/
+.form {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 2em;
+  gap: .5em;
+  text-align: center;
+}
+.form input {
+  display: block;
+  margin-inline: auto;
+  border: none;
+  background-color: transparent;
+  border-bottom: 2px solid rgb(126, 64, 23);
+}
+.form input:focus {
+  outline: none;
+}
+.form input::placeholder {
+  color: rgb(53, 53, 53);
+  font-weight: bold;
+}
+/********************** 
+    LOGIN PAGE STYLES
+***********************/
+.login-main {
+  display: grid;
+  place-items: center;
+}
+/********************** 
+  REGISTER PAGE STYLES
+***********************/
+.register-main {
+  display: grid;
+  place-items: center;
 }

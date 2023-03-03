@@ -4,19 +4,13 @@ function Header() {
   const location = useLocation()
   return (
     <header className='header'>
-    Header
-    {location.pathname==='/Dashboard/'? 
-    (
-      <>
+    My Cook Book
+    {location.pathname==='/Dashboard/'&&
+      <div>
       <Link to={'/Dashboard/'}>Dashboard</Link>
       <button>Logout</button>
-      </>
-    ):(
-      <>
-      <Link to={'/Register/'}>Register</Link>
-      <Link to={'/Login/'}>Login</Link>
-      </>
-    ) }
+      </div>
+    }
     </header>
   )
 }
