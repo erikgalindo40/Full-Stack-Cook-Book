@@ -13,7 +13,8 @@ function Register() {
         <input type="password" name='password' id='password' placeholder='Password'/>
         <label htmlFor="password2"></label>
         <input type="password" name='password2' id='password2' placeholder='Confirm Password'/>
-      <p>Have an account? <Link to={'/Login/'}>Login!</Link></p>
+      <p>Have an account? <Link to={'/Login/'} className='form-link'>Login</Link></p>
+      <button className='form-button'>Register</button>
       </form>
     </main>
   )

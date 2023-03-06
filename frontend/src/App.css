@@ -15,7 +15,7 @@ html, body, .App {
 }
 
 .App {
-  background-color: rgb(209, 195, 164);
+  background-color: #f9e3c0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -26,15 +26,18 @@ html, body, .App {
 ***********************/
 .header {
   display: flex;
+  font-weight: bold;
   justify-content: space-between;
-  background-color: rgb(209, 185, 132);
+  background: rgb(249,227,192);
+  background: linear-gradient(-20deg, rgba(249,227,192,1) 0%, rgb(245, 176, 72) 100%);
   padding: 1em;
 }
 /********************** 
       FOOTER STYLES
 ***********************/
 .footer {
-  background-color: rgb(114, 65, 9);
+  color: rgb(238, 238, 238);
+  background-color: rgb(97, 38, 4);
   padding: 1em;
 }
 /********************** 
@@ -45,23 +48,49 @@ html, body, .App {
   flex-direction: column;
   border: 2px solid black;
   border-radius: 5px;
-  padding: 2em;
+  width: min(95vw, 35em);
   gap: .5em;
+
   text-align: center;
+}
+.form p {
+  padding-top: 2em;
+  font-size: small;
+}
+.form-link {
+  text-decoration: none;
+  color: rgb(97, 38, 4);
+  font-weight: 500;
 }
 .form input {
   display: block;
   margin-inline: auto;
   border: none;
   background-color: transparent;
-  border-bottom: 2px solid rgb(126, 64, 23);
+  border-bottom: 2px solid rgb(97, 38, 4);
+  padding: .4em;
+  transition: 150ms;
 }
 .form input:focus {
   outline: none;
+  background-color: rgb(241, 206, 149);
+  border-radius: 5px 5px 0 0;
 }
 .form input::placeholder {
-  color: rgb(53, 53, 53);
+  color: rgb(107, 107, 107);
+}
+.form-button {
+  border: none;
+  padding: 1em;
   font-weight: bold;
+  background-color: rgb(241, 206, 149);
+  transition: 250ms;
+  font-size: 1.1rem;
+}
+.form-button:hover {
+  cursor: pointer;
+  color: rgb(240, 240, 240);
+  background-color: rgb(97, 38, 4);
 }
 /********************** 
     LOGIN PAGE STYLES

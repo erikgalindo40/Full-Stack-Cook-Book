@@ -9,7 +9,8 @@ function Login() {
         <input type="text" name='email' id='email' placeholder='Email'/>
         <label htmlFor="password"></label>
         <input type="password" name='password' id='name' placeholder='Password'/>
-        <p>Need an account? <Link to={'/Register/'}>Sign up!</Link></p>
+        <p>Need an account? <Link to={'/Register/'} className='form-link'>Sign up</Link></p>
+        <button className='form-button'>Sign In</button>
       </form>
     </main>
   )
