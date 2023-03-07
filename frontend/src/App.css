@@ -15,10 +15,19 @@ html, body, .App {
 }
 
 .App {
-  background-color: #f9e3c0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background-color: whitesmoke;
+}
+
+:root {
+  --secondary-dark: #171A21;
+  --secondary-light: #8ec9f3;
+  --primary-dark: #FF8811;
+  --primary-light: #eeb155;
+  --background-light: #E8DDB5;
+  --font-light: #EEEEEE;
 }
 
 /********************** 
@@ -26,19 +35,36 @@ html, body, .App {
 ***********************/
 .header {
   display: flex;
+  font-size: 1.2rem;
   font-weight: bold;
   justify-content: space-between;
-  background: rgb(249,227,192);
-  background: linear-gradient(-20deg, rgba(249,227,192,1) 0%, rgb(245, 176, 72) 100%);
+  background: var(--secondary-light);
   padding: 1em;
+  padding-inline: 2em;
+}
+.logout-button {
+  padding: .5em;
+  background-color: transparent;
+  border: 2px solid var(--secondary-dark);
+  border-radius: 5px;
+  color: var(--secondary-dark);
+  font-weight: bold;
+  transition: 150ms;
+}
+.logout-button:hover, .logout-button:focus {
+  cursor: pointer;
+  color: var(--font-light);
+  background-color: var(--primary-light);
+  border-color: var(--primary-dark);
 }
 /********************** 
       FOOTER STYLES
 ***********************/
 .footer {
-  color: rgb(238, 238, 238);
-  background-color: rgb(97, 38, 4);
+  color: var(--secondary-dark);
+  background-color: var(--primary-dark);
   padding: 1em;
+  padding-inline: 2em;
 }
 /********************** 
       FORM STYLES
@@ -46,7 +72,7 @@ html, body, .App {
 .form {
   display: flex;
   flex-direction: column;
-  border: 2px solid black;
+  border: 2px solid var(--primary-dark);
   border-radius: 5px;
   width: min(95vw, 35em);
   gap: .5em;
@@ -59,21 +85,24 @@ html, body, .App {
 }
 .form-link {
   text-decoration: none;
-  color: rgb(97, 38, 4);
+  color: var(--primary-dark);
   font-weight: 500;
+}
+.form-link:hover {
+  text-decoration: underline;
 }
 .form input {
   display: block;
   margin-inline: auto;
   border: none;
   background-color: transparent;
-  border-bottom: 2px solid rgb(97, 38, 4);
+  border-bottom: 2px solid var(--secondary-dark);
   padding: .4em;
   transition: 150ms;
 }
 .form input:focus {
   outline: none;
-  background-color: rgb(241, 206, 149);
+  background-color: var(--background-light);
   border-radius: 5px 5px 0 0;
 }
 .form input::placeholder {
@@ -83,14 +112,14 @@ html, body, .App {
   border: none;
   padding: 1em;
   font-weight: bold;
-  background-color: rgb(241, 206, 149);
+  background-color: var(--secondary-light);
   transition: 250ms;
   font-size: 1.1rem;
 }
 .form-button:hover {
   cursor: pointer;
-  color: rgb(240, 240, 240);
-  background-color: rgb(97, 38, 4);
+  color: var(--font-light);
+  background-color: var(--primary-light);
 }
 /********************** 
     LOGIN PAGE STYLES
@@ -105,4 +134,56 @@ html, body, .App {
 .register-main {
   display: grid;
   place-items: center;
+}
+/********************** 
+    RECIPE STYLES
+***********************/
+.recipes {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.recipe {
+  border: 2px solid var(--primary-dark);
+  border-radius: 3px;
+  margin: 2em;
+  padding: .5em;
+}
+.recipe-header {
+  display: flex;
+  font-size: 1.1rem;
+  justify-content: space-between;
+}
+.recipe-time {
+  align-self: center;
+  font-weight: bold;
+  color: var(--secondary-dark);
+}
+.recipe-description {
+  font-size: .87rem;
+  width: fit-content;
+  color: rgb(51, 51, 51);
+  border-bottom: 1px solid black;
+}
+.recipe-ingredients {
+  list-style-type: circle;
+  border-bottom: 1px solid black;
+  width: max-content;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.recipe-ingredient {
+  margin-left: 2em;
+  padding-block: .2em;
+}
+.recipe-directions {
+  list-style-type: decimal;
+}
+.recipe-direction {
+  margin-left: 2em;
+}
+/********************** 
+    DASHBOARD STYLES
+***********************/
+.dashboard-container {
 }

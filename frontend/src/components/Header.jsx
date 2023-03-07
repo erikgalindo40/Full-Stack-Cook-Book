@@ -7,8 +7,7 @@ function Header() {
     My Cook Book
     {location.pathname==='/Dashboard/'&&
       <div>
-      <Link to={'/Dashboard/'}>Dashboard</Link>
-      <button>Logout</button>
+      <button className='logout-button'>Logout</button>
       </div>
     }
     </header>
