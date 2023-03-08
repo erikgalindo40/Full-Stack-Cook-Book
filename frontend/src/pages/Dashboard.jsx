@@ -12,20 +12,52 @@ function Dashboard() {
             <p className='recipe-description'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum, dolore optio! Reprehenderit neque in culpa eius</p>
             <h3>Ingredients</h3>
             <ul className="recipe-ingredients">
-              <li className="recipe-ingredient">Thyme</li>
-              <li className="recipe-ingredient">Sugar</li>
-              <li className="recipe-ingredient">Salt</li>
-              <li className="recipe-ingredient">Season</li>
-              <li className="recipe-ingredient">Chicken</li>
-              <li className="recipe-ingredient">Bread</li>
-              <li className="recipe-ingredient">Lemon</li>
-              <li className="recipe-ingredient">BBQ Sauce</li>
+              <li className="recipe-ingredient">
+                <span className='ingredient-amount'>1 </span>
+                <span className='ingredient-unit'>Handful/s</span>
+                <span className='ingredient-name'> Thyme</span>
+              </li>
+              <li className="recipe-ingredient">
+                <span className='ingredient-amount'>2 </span>
+                <span className='ingredient-unit'>Pinch/s</span>
+                <span className='ingredient-name'> Sugar</span>
+              </li>
+              <li className="recipe-ingredient">
+                <span className='ingredient-amount'>1 </span>
+                <span className='ingredient-unit'>Tsp.</span>
+                <span className='ingredient-name'> Salt</span>
+              </li>
+              <li className="recipe-ingredient">
+                <span className='ingredient-amount'>1 </span>
+                <span className='ingredient-unit'>Tbsp.</span>
+                <span className='ingredient-name'> Season</span>
+              </li>
+              <li className="recipe-ingredient">
+                <span className='ingredient-amount'>3 </span>
+                <span className='ingredient-unit'>lbs.</span>
+                <span className='ingredient-name'> Chicken</span>
+              </li>
+              <li className="recipe-ingredient">
+                <span className='ingredient-amount'>1 </span>
+                <span className='ingredient-unit'></span>
+                <span className='ingredient-name'> Bread</span>
+              </li>
+              <li className="recipe-ingredient">
+                <span className='ingredient-amount'>1/3 </span>
+                <span className='ingredient-unit'>Cup</span>
+                <span className='ingredient-name'> Lemon</span>
+              </li>
+              <li className="recipe-ingredient">
+                <span className='ingredient-amount'>2 </span>
+                <span className='ingredient-unit'>Tsp.</span>
+                <span className='ingredient-name'> BBQ Sauce</span>
+              </li>
             </ul>
             <ol className='recipe-directions'>
               <h3>Directions</h3>
-              <li className="recipe-direction">Mix Items</li>
+              <li className="recipe-direction">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum molestiae est harum esse blanditiis hic aliquid laborum. Repellat tempore in cumque, aperiam ipsa fuga nobis pariatur libero atque sequi et.</li>
               <li className="recipe-direction">Season Chicken</li>
-              <li className="recipe-direction">Plate Dish</li>
+              <li className="recipe-direction">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia voluptates minima adipisci vitae reprehenderit, temporibus nihil commodi, vel voluptas reiciendis vero facere autem eveniet velit nobis cum magni, natus obcaecati?</li>
               <li className="recipe-direction">Enjoy Meal</li>
             </ol>
           </li>
@@ -37,20 +69,52 @@ function Dashboard() {
             <p className='recipe-description'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum, dolore optio! Reprehenderit neque in culpa eius</p>
             <h3>Ingredients</h3>
             <ul className="recipe-ingredients">
-              <li className="recipe-ingredient">Thyme</li>
-              <li className="recipe-ingredient">Sugar</li>
-              <li className="recipe-ingredient">Salt</li>
-              <li className="recipe-ingredient">Season</li>
-              <li className="recipe-ingredient">Chicken</li>
-              <li className="recipe-ingredient">Bread</li>
-              <li className="recipe-ingredient">Lemon</li>
-              <li className="recipe-ingredient">BBQ Sauce</li>
+              <li className="recipe-ingredient">
+                <span className='ingredient-amount'>1 </span>
+                <span className='ingredient-unit'>Handful/s</span>
+                <span className='ingredient-name'> Thyme</span>
+              </li>
+              <li className="recipe-ingredient">
+                <span className='ingredient-amount'>2 </span>
+                <span className='ingredient-unit'>Pinch/s</span>
+                <span className='ingredient-name'> Sugar</span>
+              </li>
+              <li className="recipe-ingredient">
+                <span className='ingredient-amount'>1 </span>
+                <span className='ingredient-unit'>Tsp.</span>
+                <span className='ingredient-name'> Salt</span>
+              </li>
+              <li className="recipe-ingredient">
+                <span className='ingredient-amount'>1 </span>
+                <span className='ingredient-unit'>Tbsp.</span>
+                <span className='ingredient-name'> Season</span>
+              </li>
+              <li className="recipe-ingredient">
+                <span className='ingredient-amount'>3 </span>
+                <span className='ingredient-unit'>lbs.</span>
+                <span className='ingredient-name'> Chicken</span>
+              </li>
+              <li className="recipe-ingredient">
+                <span className='ingredient-amount'>1 </span>
+                <span className='ingredient-unit'></span>
+                <span className='ingredient-name'> Bread</span>
+              </li>
+              <li className="recipe-ingredient">
+                <span className='ingredient-amount'>1/3 </span>
+                <span className='ingredient-unit'>Cup</span>
+                <span className='ingredient-name'> Lemon</span>
+              </li>
+              <li className="recipe-ingredient">
+                <span className='ingredient-amount'>2 </span>
+                <span className='ingredient-unit'>Tsp.</span>
+                <span className='ingredient-name'> BBQ Sauce</span>
+              </li>
             </ul>
             <ol className='recipe-directions'>
               <h3>Directions</h3>
-              <li className="recipe-direction">Mix Items</li>
+              <li className="recipe-direction">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum molestiae est harum esse blanditiis hic aliquid laborum. Repellat tempore in cumque, aperiam ipsa fuga nobis pariatur libero atque sequi et.</li>
               <li className="recipe-direction">Season Chicken</li>
-              <li className="recipe-direction">Plate Dish</li>
+              <li className="recipe-direction">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia voluptates minima adipisci vitae reprehenderit, temporibus nihil commodi, vel voluptas reiciendis vero facere autem eveniet velit nobis cum magni, natus obcaecati?</li>
               <li className="recipe-direction">Enjoy Meal</li>
             </ol>
           </li>
@@ -62,20 +126,52 @@ function Dashboard() {
             <p className='recipe-description'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum, dolore optio! Reprehenderit neque in culpa eius</p>
             <h3>Ingredients</h3>
             <ul className="recipe-ingredients">
-              <li className="recipe-ingredient">Thyme</li>
-              <li className="recipe-ingredient">Sugar</li>
-              <li className="recipe-ingredient">Salt</li>
-              <li className="recipe-ingredient">Season</li>
-              <li className="recipe-ingredient">Chicken</li>
-              <li className="recipe-ingredient">Bread</li>
-              <li className="recipe-ingredient">Lemon</li>
-              <li className="recipe-ingredient">BBQ Sauce</li>
+              <li className="recipe-ingredient">
+                <span className='ingredient-amount'>1 </span>
+                <span className='ingredient-unit'>Handful/s</span>
+                <span className='ingredient-name'> Thyme</span>
+              </li>
+              <li className="recipe-ingredient">
+                <span className='ingredient-amount'>2 </span>
+                <span className='ingredient-unit'>Pinch/s</span>
+                <span className='ingredient-name'> Sugar</span>
+              </li>
+              <li className="recipe-ingredient">
+                <span className='ingredient-amount'>1 </span>
+                <span className='ingredient-unit'>Tsp.</span>
+                <span className='ingredient-name'> Salt</span>
+              </li>
+              <li className="recipe-ingredient">
+                <span className='ingredient-amount'>1 </span>
+                <span className='ingredient-unit'>Tbsp.</span>
+                <span className='ingredient-name'> Season</span>
+              </li>
+              <li className="recipe-ingredient">
+                <span className='ingredient-amount'>3 </span>
+                <span className='ingredient-unit'>lbs.</span>
+                <span className='ingredient-name'> Chicken</span>
+              </li>
+              <li className="recipe-ingredient">
+                <span className='ingredient-amount'>1 </span>
+                <span className='ingredient-unit'></span>
+                <span className='ingredient-name'> Bread</span>
+              </li>
+              <li className="recipe-ingredient">
+                <span className='ingredient-amount'>1/3 </span>
+                <span className='ingredient-unit'>Cup</span>
+                <span className='ingredient-name'> Lemon</span>
+              </li>
+              <li className="recipe-ingredient">
+                <span className='ingredient-amount'>2 </span>
+                <span className='ingredient-unit'>Tsp.</span>
+                <span className='ingredient-name'> BBQ Sauce</span>
+              </li>
             </ul>
             <ol className='recipe-directions'>
               <h3>Directions</h3>
-              <li className="recipe-direction">Mix Items</li>
+              <li className="recipe-direction">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum molestiae est harum esse blanditiis hic aliquid laborum. Repellat tempore in cumque, aperiam ipsa fuga nobis pariatur libero atque sequi et.</li>
               <li className="recipe-direction">Season Chicken</li>
-              <li className="recipe-direction">Plate Dish</li>
+              <li className="recipe-direction">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia voluptates minima adipisci vitae reprehenderit, temporibus nihil commodi, vel voluptas reiciendis vero facere autem eveniet velit nobis cum magni, natus obcaecati?</li>
               <li className="recipe-direction">Enjoy Meal</li>
             </ol>
           </li>
@@ -87,20 +183,52 @@ function Dashboard() {
             <p className='recipe-description'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum, dolore optio! Reprehenderit neque in culpa eius</p>
             <h3>Ingredients</h3>
             <ul className="recipe-ingredients">
-              <li className="recipe-ingredient">Thyme</li>
-              <li className="recipe-ingredient">Sugar</li>
-              <li className="recipe-ingredient">Salt</li>
-              <li className="recipe-ingredient">Season</li>
-              <li className="recipe-ingredient">Chicken</li>
-              <li className="recipe-ingredient">Bread</li>
-              <li className="recipe-ingredient">Lemon</li>
-              <li className="recipe-ingredient">BBQ Sauce</li>
+              <li className="recipe-ingredient">
+                <span className='ingredient-amount'>1 </span>
+                <span className='ingredient-unit'>Handful/s</span>
+                <span className='ingredient-name'> Thyme</span>
+              </li>
+              <li className="recipe-ingredient">
+                <span className='ingredient-amount'>2 </span>
+                <span className='ingredient-unit'>Pinch/s</span>
+                <span className='ingredient-name'> Sugar</span>
+              </li>
+              <li className="recipe-ingredient">
+                <span className='ingredient-amount'>1 </span>
+                <span className='ingredient-unit'>Tsp.</span>
+                <span className='ingredient-name'> Salt</span>
+              </li>
+              <li className="recipe-ingredient">
+                <span className='ingredient-amount'>1 </span>
+                <span className='ingredient-unit'>Tbsp.</span>
+                <span className='ingredient-name'> Season</span>
+              </li>
+              <li className="recipe-ingredient">
+                <span className='ingredient-amount'>3 </span>
+                <span className='ingredient-unit'>lbs.</span>
+                <span className='ingredient-name'> Chicken</span>
+              </li>
+              <li className="recipe-ingredient">
+                <span className='ingredient-amount'>1 </span>
+                <span className='ingredient-unit'></span>
+                <span className='ingredient-name'> Bread</span>
+              </li>
+              <li className="recipe-ingredient">
+                <span className='ingredient-amount'>1/3 </span>
+                <span className='ingredient-unit'>Cup</span>
+                <span className='ingredient-name'> Lemon</span>
+              </li>
+              <li className="recipe-ingredient">
+                <span className='ingredient-amount'>2 </span>
+                <span className='ingredient-unit'>Tsp.</span>
+                <span className='ingredient-name'> BBQ Sauce</span>
+              </li>
             </ul>
             <ol className='recipe-directions'>
               <h3>Directions</h3>
-              <li className="recipe-direction">Mix Items</li>
+              <li className="recipe-direction">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum molestiae est harum esse blanditiis hic aliquid laborum. Repellat tempore in cumque, aperiam ipsa fuga nobis pariatur libero atque sequi et.</li>
               <li className="recipe-direction">Season Chicken</li>
-              <li className="recipe-direction">Plate Dish</li>
+              <li className="recipe-direction">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia voluptates minima adipisci vitae reprehenderit, temporibus nihil commodi, vel voluptas reiciendis vero facere autem eveniet velit nobis cum magni, natus obcaecati?</li>
               <li className="recipe-direction">Enjoy Meal</li>
             </ol>
           </li>

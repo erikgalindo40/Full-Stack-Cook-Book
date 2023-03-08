@@ -176,14 +176,19 @@ html, body, .App {
   margin-left: 2em;
   padding-block: .2em;
 }
+.ingredient-amount{
+  font-weight: bold;
+}
+.ingredient-unit{
+  font-weight: bold;
+}
 .recipe-directions {
   list-style-type: decimal;
 }
 .recipe-direction {
-  margin-left: 2em;
+  list-style-position: inside;
+  margin-block: .2em;
 }
-/********************** 
-    DASHBOARD STYLES
-***********************/
-.dashboard-container {
+.recipe-direction::first-letter {
+  font-weight: bold;
 }
