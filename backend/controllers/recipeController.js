@@ -14,7 +14,7 @@ const getRecipes = asyncHandler(async (req,res) => {
 // ROUTE   POST /api/recipes
 // ACCESS  Private
 const createRecipe = asyncHandler(async (req,res) => {
-    if (!req.body.name || !req.body.ingredients || !req.body.directions) {
+    if (!req.body.name || !req.body.ingredients || !req.body.directions || !req.body.description || !req.body.time) {
         res.status(400)
         throw new Error('Please add required fields')
     }
@@ -23,7 +23,9 @@ const createRecipe = asyncHandler(async (req,res) => {
         name: req.body.name,
         ingredients: req.body.ingredients,
         directions: req.body.directions,
-        user: req.user.id
+        description: req.body.description,
+        time: req.body.time,
+        user: req.user.id,
     })
 
     res.status(201).json(recipe)
