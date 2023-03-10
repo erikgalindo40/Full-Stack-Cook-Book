@@ -1,14 +1,60 @@
-import { Link } from 'react-router-dom'
+import { json, Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { toast } from 'react-toastify'
 
 function Login() {
+  const [loginInfo, setLoginInfo] = useState({
+    email: '',
+    password: '',
+  })
+  const [isPending, setIsPending] = useState(false)
+  const [isError, setIsError] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
+
+  const onChange = (e) => {
+    setLoginInfo((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }))
+  }
+  const onSubmit = (e) => {
+    e.preventDefault()
+    setIsPending(true)
+    fetch('/api/users/login', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(loginInfo)
+    })
+    .then(response=>{
+      if(!response.ok) {
+        throw response
+      }
+      response.json()
+    })
+    .then(data=>{
+      setIsPending(false)
+      console.log(data)
+    })
+    .catch(error=>{
+      setIsPending(false)
+      setIsError(true)
+      error.json().then(err=>setErrorMessage(err.message))
+    })
+  }
+  const { email, password } = loginInfo
+
   return (
     <main className='login-main'>
-      <form className='login-form form'>
+      <form onSubmit={onSubmit} className='login-form form'>
         <h1>Let's get cooking!</h1>
+        {isError&&<div className='error-message'>{errorMessage||'Invalid Credentials'}</div>}
         <label htmlFor="email"></label>
-        <input type="text" name='email' id='email' placeholder='Email'/>
+        <input type="text" onChange={onChange} value={email} name='email' id='email' placeholder='Email'/>
         <label htmlFor="password"></label>
-        <input type="password" name='password' id='name' placeholder='Password'/>
+        <input type="password" onChange={onChange} value={password} name='password' id='name' placeholder='Password'/>
+        {isPending&&<div className='loading-message'>Please Wait...</div>}
         <p>Need an account? <Link to={'/Register/'} className='form-link'>Sign up</Link></p>
         <button className='form-button'>Sign In</button>
       </form>
