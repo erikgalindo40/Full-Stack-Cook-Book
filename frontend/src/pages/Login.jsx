@@ -1,8 +1,9 @@
-import { json, Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import { toast } from 'react-toastify'
 
 function Login() {
+  const navigate = useNavigate()
+
   const [loginInfo, setLoginInfo] = useState({
     email: '',
     password: '',
@@ -10,6 +11,7 @@ function Login() {
   const [isPending, setIsPending] = useState(false)
   const [isError, setIsError] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
+  const [isSuccess, setIsSuccess] = useState(false)
 
   const onChange = (e) => {
     setLoginInfo((prevState) => ({
@@ -31,11 +33,12 @@ function Login() {
       if(!response.ok) {
         throw response
       }
-      response.json()
+      return response.json()
     })
     .then(data=>{
       setIsPending(false)
-      console.log(data)
+      setIsSuccess(true)
+      localStorage.setItem('user', JSON.stringify(data))
     })
     .catch(error=>{
       setIsPending(false)
@@ -44,6 +47,13 @@ function Login() {
     })
   }
   const { email, password } = loginInfo
+
+  useEffect(() => {
+    if(isSuccess||localStorage.getItem('user')) {
+      navigate('/Dashboard/')
+    }
+
+  }, [isSuccess, navigate])
 
   return (
     <main className='login-main'>
