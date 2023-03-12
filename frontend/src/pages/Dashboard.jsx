@@ -1,6 +1,38 @@
-import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 
 function Dashboard() {
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if(!localStorage.getItem('user')) {
+      navigate('/Login')
+      return
+    }
+
+    const user = JSON.parse(localStorage.getItem('user'))
+
+    fetch('/api/recipes', {
+      headers:{
+        authorization: `Bearer ${user.token}`
+      }
+    })
+    .then(response=>{
+      if(!response.ok) {
+        throw Promise.reject(response)
+      }
+      return response.json()
+    })
+    .then(data=>{
+      console.log(data)
+    })
+    .catch(error=>{
+      error.json().then(err=>console.log(`ERROR: ${err}`))
+    })
+
+  }, [navigate])
+  
+
   return (
     <main className='dashboard-container'>
         <ul className='recipes'>

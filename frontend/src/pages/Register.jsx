@@ -62,6 +62,7 @@ function Register() {
     }
 
   }, [isSuccess, navigate])
+  
   return (
     <main className='register-main'>
       <form onSubmit={onRegister} className='register-form form'>
