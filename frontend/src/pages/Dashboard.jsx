@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import RecipeForm from '../components/RecipeForm'
 
 function Dashboard() {
   const navigate = useNavigate()
@@ -35,6 +36,7 @@ function Dashboard() {
 
   return (
     <main className='dashboard-container'>
+      <RecipeForm />
         <ul className='recipes'>
           <li className="recipe">
             <div className="recipe-header">

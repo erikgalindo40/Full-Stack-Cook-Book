@@ -201,3 +201,86 @@ html, body, .App {
 .recipe-direction::first-letter {
   font-weight: bold;
 }
+/********************** 
+  RECIPE FORM STYLES
+***********************/
+.recipe-form {
+  padding: 1em;
+}
+.recipe-form label {
+  display: block;
+  align-self: center;
+}
+.recipe-sub-header-container {
+  display: flex;
+  align-self: center;
+  gap: 1em;
+  font-weight: bold;
+  background-color: var(--background-light);
+  padding-right: 1em;
+  margin-top: 1em;
+  border-radius: 5px;
+}
+.recipe-add-button {
+  outline: none;
+  border: none;
+  background-color: var(--secondary-light);
+  color: var(--secondary-dark);
+  padding-inline: 1em;
+  transition: 250ms;
+}
+.recipe-add-button:hover, .recipe-add-button:focus {
+  cursor: pointer;
+  background-color: var(--primary-light);
+}
+.recipe-form-textarea {
+  min-width: 10rem;
+  max-width: 13rem;
+  min-height: 1rem;
+  padding: .2em;
+}
+.recipe-form-select, .recipe-form-textarea {
+  align-self: center;
+  width: fit-content;
+  border: none;
+  border-bottom: 2px solid var(--secondary-dark);
+  background-color: transparent;
+}
+.recipe-form-select:focus {
+  outline: none;
+  background-color: var(--background-light);
+}
+.recipe-ingredient-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+.ingredient-name {
+  width: 8rem;
+}
+.ingredient-unit {
+  max-width: 7em;
+}
+.ingredient-amount {
+  width: 3em;
+}
+.recipe-header-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+.direction-textarea {
+  min-width: 30em;
+  max-height: 3rem;
+}
+.recipe-form-input {
+  margin: 0 !important;
+}
+/********************** 
+    DASHBOARD STYLES
+***********************/
+.dashboard-container {
+  padding-block: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
