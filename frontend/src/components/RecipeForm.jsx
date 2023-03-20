@@ -65,7 +65,7 @@ function RecipeForm() {
         setRecipePending(true)
         const user = JSON.parse(localStorage.getItem('user'))
         
-        fetch('/api/recipes',{
+        fetch('http://localhost:5000/api/recipes',{
             method:'POST',
             headers: {
                 'content-type': 'application/json',
@@ -75,9 +75,9 @@ function RecipeForm() {
         })
         .then(response=>{
             if(!response.ok) {
-                throw Promise.reject(response)
+                throw response
             }
-            console.log(response)
+            console.log(response.body)
             return response.json()
         })
         .then(data=>{
@@ -89,15 +89,14 @@ function RecipeForm() {
             setRecipePending(false)
             setRecipeError(true)
             error.json().then(err=>setRecipeErrorMessage(err.message))
-            error.json().then(err=>console.log(`ERROR: ${err}`))
         })
         }
 
     return (
-    <form onSubmit={(e)=>onSubmit(e, {name:recipeName, description:recipeDescription, time:recipeTime, ingredients:ingredients, directions:directions})} className='recipe-form form'>
+    <form onSubmit={(e)=>onSubmit(e, {name:recipeName, description:recipeDescription, time:recipeTime, ingredients:JSON.stringify(ingredients), directions:JSON.stringify(directions)})} className='recipe-form form'>
         <h2>Create a recipe!</h2>
         {recipeSuccess&& <div>Success</div> }
-        {recipeError&& <div>{recipeErrorMessage}</div> }
+        {recipeError&& <div className='error-message'>{recipeErrorMessage}</div> }
 
         <div className='recipe-header-container'>
         <label htmlFor="recipe-name">Recipe Name:</label>
@@ -105,6 +104,7 @@ function RecipeForm() {
 
         <label htmlFor="time-lengths">Time Estimate:</label>
         <select value={recipeTime} onChange={onChangeRecipeTime} className='recipe-form-select' id='time-lengths'>
+            <option value=""></option>
             <option value="10 min">10 min</option>
             <option value="20 min">20 min</option>
             <option value="30 min">30 min</option>
@@ -150,7 +150,7 @@ function RecipeForm() {
             })}
         </ol>
         {recipePending&&<div>Creating...</div>}
-        <button>CREATE</button>
+        <button className='form-button'>CREATE</button>
     </form>
     )
 }
