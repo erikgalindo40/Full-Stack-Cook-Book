@@ -58,7 +58,7 @@ function Register() {
 
   useEffect(() => {
     if(isSuccess||localStorage.getItem('user')) {
-      navigate('/Dashboard/')
+      navigate('/dashboard/')
     }
 
   }, [isSuccess, navigate])
@@ -77,7 +77,7 @@ function Register() {
         <label htmlFor="password2"></label>
         <input onChange={onChange} type="password" value={password2} name='password2' id='password2' placeholder='Confirm Password'/>
         {isPending&&<div className='loading-message'>Please Wait...</div>}
-        <p>Have an account? <Link to={'/Login/'} className='form-link'>Login</Link></p>
+        <p>Have an account? <Link to={'/login/'} className='form-link'>Login</Link></p>
         <button className='form-button'>Register</button>
       </form>
     </main>

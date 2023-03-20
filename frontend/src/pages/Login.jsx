@@ -50,7 +50,7 @@ function Login() {
 
   useEffect(() => {
     if(isSuccess||localStorage.getItem('user')) {
-      navigate('/Dashboard/')
+      navigate('/dashboard/')
     }
 
   }, [isSuccess, navigate])
@@ -65,7 +65,7 @@ function Login() {
         <label htmlFor="password"></label>
         <input type="password" onChange={onChange} value={password} name='password' id='name' placeholder='Password'/>
         {isPending&&<div className='loading-message'>Please Wait...</div>}
-        <p>Need an account? <Link to={'/Register/'} className='form-link'>Sign up</Link></p>
+        <p>Need an account? <Link to={'/register/'} className='form-link'>Sign up</Link></p>
         <button className='form-button'>Sign In</button>
       </form>
     </main>

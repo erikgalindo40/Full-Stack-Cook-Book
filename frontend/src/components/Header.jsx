@@ -6,13 +6,13 @@ function Header() {
 
   const onLogout = () => {
     localStorage.removeItem('user')
-    navigate('/Login')
+    navigate('/login')
   }
 
   return (
     <header className='header'>
     My Cook Book
-    {location.pathname==='/Dashboard/'&&
+    {location.pathname==='/dashboard/'&&
       <div>
       <button onClick={onLogout} className='logout-button'>Logout</button>
       </div>

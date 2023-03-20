@@ -9,10 +9,10 @@ function RecipeForm() {
     const [recipeName, setRecipeName] = useState('')
     const [recipeTime, setRecipeTime] = useState('')
     const [recipeDescription, setRecipeDescription] = useState('')
-    // const [recipeSuccess, setRecipeSuccess] = useState(false)
-    // const [recipeError, setRecipeError] = useState(false)
-    // const [recipePending, setRecipePending] = useState(false)
-    // const [recipeErrorMessage, setRecipeErrorMessage] = useState('')
+    const [recipeSuccess, setRecipeSuccess] = useState(false)
+    const [recipeError, setRecipeError] = useState(false)
+    const [recipePending, setRecipePending] = useState(false)
+    const [recipeErrorMessage, setRecipeErrorMessage] = useState('')
 
     const onAddIngredient = (e) => {
         e.preventDefault()
@@ -60,12 +60,44 @@ function RecipeForm() {
         const filteredDirections = directions.filter(direction=>direction.id!==id)
         setDirections(filteredDirections)
     }
+    const onSubmit = (e, recipe) => {
+        e.preventDefault()
+        setRecipePending(true)
+        const user = JSON.parse(localStorage.getItem('user'))
+        
+        fetch('/api/recipes',{
+            method:'POST',
+            headers: {
+                'content-type': 'application/json',
+                authorization: `Bearer ${user.token}`,
+            },
+            body: JSON.stringify(recipe),
+        })
+        .then(response=>{
+            if(!response.ok) {
+                throw Promise.reject(response)
+            }
+            console.log(response)
+            return response.json()
+        })
+        .then(data=>{
+            setRecipePending(false)
+            setRecipeSuccess(true)
+            console.log(`SUCCESS: ${data}`)
+        })
+        .catch(error=>{
+            setRecipePending(false)
+            setRecipeError(true)
+            error.json().then(err=>setRecipeErrorMessage(err.message))
+            error.json().then(err=>console.log(`ERROR: ${err}`))
+        })
+        }
 
     return (
-    <form className='recipe-form form'>
+    <form onSubmit={(e)=>onSubmit(e, {name:recipeName, description:recipeDescription, time:recipeTime, ingredients:ingredients, directions:directions})} className='recipe-form form'>
         <h2>Create a recipe!</h2>
-        {/* {recipeSuccess&& <div>Success</div> }
-        {recipeError&& <div>{recipeErrorMessage}</div> } */}
+        {recipeSuccess&& <div>Success</div> }
+        {recipeError&& <div>{recipeErrorMessage}</div> }
 
         <div className='recipe-header-container'>
         <label htmlFor="recipe-name">Recipe Name:</label>
@@ -117,7 +149,7 @@ function RecipeForm() {
                 return (<Direction onDeleteRecipeDirection={onDeleteRecipeDirection} onChangeDirectionInfo={onChangeDirectionInfo} keyid={direction.id} text={direction.text} />)
             })}
         </ol>
-        {/* {recipePending&&<div>Creating...</div>} */}
+        {recipePending&&<div>Creating...</div>}
         <button>CREATE</button>
     </form>
     )
