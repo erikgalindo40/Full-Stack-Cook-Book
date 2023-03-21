@@ -77,13 +77,11 @@ function RecipeForm() {
             if(!response.ok) {
                 throw response
             }
-            console.log(response.body)
             return response.json()
         })
         .then(data=>{
             setRecipePending(false)
             setRecipeSuccess(true)
-            console.log(`SUCCESS: ${data}`)
         })
         .catch(error=>{
             setRecipePending(false)
@@ -136,7 +134,7 @@ function RecipeForm() {
         </div>
         <ul>
             {ingredients.map(ingredient=> {
-                return (<Ingredient keyid={ingredient.id} onDeleteRecipeIngredient={onDeleteRecipeIngredient} onChangeRecipeIngredient={onChangeRecipeIngredient} unit={ingredient.unit} amount={ingredient.amount} name={ingredient.name}/>)
+                return (<Ingredient key={ingredient.id} keyid={ingredient.id} onDeleteRecipeIngredient={onDeleteRecipeIngredient} onChangeRecipeIngredient={onChangeRecipeIngredient} unit={ingredient.unit} amount={ingredient.amount} name={ingredient.name}/>)
             })}
         </ul>
 
@@ -144,9 +142,9 @@ function RecipeForm() {
             <button onClick={onAddDirection} className='recipe-add-button'>+</button>
             <h3 className='recipe-form-sub-header'>Directions</h3>
         </div>
-        <ol>
+        <ol className='recipe-directions'>
             {directions.map(direction=>{
-                return (<Direction onDeleteRecipeDirection={onDeleteRecipeDirection} onChangeDirectionInfo={onChangeDirectionInfo} keyid={direction.id} text={direction.text} />)
+                return (<Direction key={direction.id} onDeleteRecipeDirection={onDeleteRecipeDirection} onChangeDirectionInfo={onChangeDirectionInfo} keyid={direction.id} text={direction.text} />)
             })}
         </ol>
         {recipePending&&<div>Creating...</div>}
