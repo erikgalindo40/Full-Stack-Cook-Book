@@ -1,5 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import { IoLogInOutline } from 'react-icons/io5'
 
 function Login() {
   const navigate = useNavigate()
@@ -66,7 +67,7 @@ function Login() {
         <input type="password" onChange={onChange} value={password} name='password' id='name' placeholder='Password'/>
         {isPending&&<div className='loading-message'>Please Wait...</div>}
         <p>Need an account? <Link to={'/register/'} className='form-link'>Sign up</Link></p>
-        <button className='form-button'>Sign In</button>
+        <button className='form-button'><IoLogInOutline /> Sign In</button>
       </form>
     </main>
   )

@@ -1,4 +1,5 @@
 import { useLocation, useNavigate } from 'react-router-dom'
+import { SlLogout } from 'react-icons/sl'
 
 function Header() {
   const location = useLocation()
@@ -14,7 +15,7 @@ function Header() {
     My Cook Book
     {location.pathname==='/dashboard/'&&
       <div>
-      <button onClick={onLogout} className='logout-button'>Logout</button>
+      <button onClick={onLogout} className='logout-button'><SlLogout/> Logout</button>
       </div>
     }
     </header>

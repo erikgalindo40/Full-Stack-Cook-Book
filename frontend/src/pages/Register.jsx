@@ -1,5 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { useState,useEffect } from 'react'
+import { HiOutlineUserAdd } from 'react-icons/hi'
 
 function Register() {
   const navigate = useNavigate()
@@ -78,7 +79,7 @@ function Register() {
         <input onChange={onChange} type="password" value={password2} name='password2' id='password2' placeholder='Confirm Password'/>
         {isPending&&<div className='loading-message'>Please Wait...</div>}
         <p>Have an account? <Link to={'/login/'} className='form-link'>Login</Link></p>
-        <button className='form-button'>Register</button>
+        <button className='form-button'><HiOutlineUserAdd /> Register</button>
       </form>
     </main>
   )

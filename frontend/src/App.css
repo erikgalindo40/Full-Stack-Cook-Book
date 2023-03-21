@@ -51,6 +51,10 @@ html, body, .App {
   font-weight: bold;
   transition: 150ms;
 }
+.logout-button svg {
+  display: inline-block;
+  vertical-align: middle;
+}
 .logout-button:hover, .logout-button:focus {
   cursor: pointer;
   color: var(--font-light);
@@ -116,7 +120,11 @@ html, body, .App {
   transition: 250ms;
   font-size: 1.1rem;
 }
-.form-button:hover {
+.form-button svg {
+  display: inline-block;
+  vertical-align: middle;
+}
+.form-button:hover, .form-button:focus {
   cursor: pointer;
   color: var(--font-light);
   background-color: var(--primary-light);
@@ -205,7 +213,7 @@ html, body, .App {
   RECIPE FORM STYLES
 ***********************/
 .recipe-form {
-  padding: 1em;
+  /* padding: 1em; */
 }
 .recipe-form label {
   display: block;
@@ -252,7 +260,9 @@ html, body, .App {
 }
 .recipe-ingredient-container {
   display: flex;
-  justify-content: space-evenly;
+  gap: 1em;
+  margin-inline: 1em;
+  padding-block: .35em;
 }
 .ingredient-name {
   width: 8rem;
@@ -271,8 +281,30 @@ html, body, .App {
   min-width: 30em;
   max-height: 3rem;
 }
+.recipe-form-direction {
+  margin-inline: 3em;
+}
 .recipe-form-input {
   margin: 0 !important;
+}
+.delete-form-item-button {
+  border: none;
+  transition: 200ms ease-out;
+}
+.delete-form-item-button:hover, .delete-form-item-button:focus {
+  cursor: pointer;
+  color: red;
+}
+.delete-form-item-button svg {
+  display: inline-block;
+  vertical-align: text-bottom;
+}
+.direction-delete-button {
+  padding-inline: 1em;
+  vertical-align: text-top;
+}
+.recipe-form-button svg {
+  vertical-align: top;
 }
 /********************** 
     DASHBOARD STYLES

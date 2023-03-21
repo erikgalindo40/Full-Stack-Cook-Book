@@ -1,3 +1,5 @@
+import { ImCross } from 'react-icons/im'
+
 function Ingredient({ unit, amount, name, keyid, onChangeRecipeIngredient, onDeleteRecipeIngredient }) {
 
     return (
@@ -17,7 +19,7 @@ function Ingredient({ unit, amount, name, keyid, onChangeRecipeIngredient, onDel
             </datalist>
             <label htmlFor="ingredient-name">Name:</label>
             <input value={name} name='name' onChange={(e)=>onChangeRecipeIngredient(e, keyid)} className='recipe-form-input ingredient-name' type="text" id='ingredient-name'/>
-            <button onClick={(e)=>onDeleteRecipeIngredient(e, keyid)}>x</button>
+            <button className="delete-form-item-button" onClick={(e)=>onDeleteRecipeIngredient(e, keyid)}><ImCross/></button>
     </li>
     )
 }

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Ingredient from './Ingredient'
 import Direction from './Direction'
 import { v4 } from 'uuid'
+import { BiFoodMenu } from 'react-icons/bi'
 
 function RecipeForm() {
     const [ingredients, setIngredients] = useState([])
@@ -142,13 +143,13 @@ function RecipeForm() {
             <button onClick={onAddDirection} className='recipe-add-button'>+</button>
             <h3 className='recipe-form-sub-header'>Directions</h3>
         </div>
-        <ol className='recipe-directions'>
+        <ol className='recipe-form-directions'>
             {directions.map(direction=>{
                 return (<Direction key={direction.id} onDeleteRecipeDirection={onDeleteRecipeDirection} onChangeDirectionInfo={onChangeDirectionInfo} keyid={direction.id} text={direction.text} />)
             })}
         </ol>
         {recipePending&&<div>Creating...</div>}
-        <button className='form-button'>CREATE</button>
+        <button className='form-button recipe-form-button'><BiFoodMenu/> CREATE</button>
     </form>
     )
 }
