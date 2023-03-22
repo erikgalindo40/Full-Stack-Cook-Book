@@ -20,14 +20,12 @@ function RecipeForm() {
         setIngredients(prevState=>(
             [...prevState, {unit:'',amount:'',name:'', id:v4()}]
         ))
-        console.log(ingredients)
     }
     const onAddDirection = (e) => {
         e.preventDefault()
         setDirections(prevState=>(
             [...prevState, {text:'', id:v4()}]
         ))
-        console.log(directions)
     }
     const onChangeRecipeName = (e) => {
         e.preventDefault()
