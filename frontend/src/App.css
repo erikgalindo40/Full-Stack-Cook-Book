@@ -164,7 +164,6 @@ html, body, .App {
   border: 2px solid var(--primary-dark);
   border-radius: 3px;
   margin: 2em;
-  position: relative;
 }
 .recipe h3 {
   padding-left: .5em;
@@ -231,9 +230,11 @@ html, body, .App {
 }
 /* RECIPE MODAL STYLES */
 .recipe-modal {
-  position: absolute;
-  right: .5em;
-  top: 4em;
+  position: fixed;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
   background-color: var(--font-light);
   padding: 2em;
   box-shadow: 2px 2px 5px var(--secondary-dark);
@@ -244,7 +245,7 @@ html, body, .App {
 .modal-button {
   padding: 1em;
   border: 2px solid;
-  /* font-weight: bold; */
+  font-weight: bold;
   border-radius: 5px;
   transition: 200ms ease-in-out;
 }
@@ -256,12 +257,29 @@ html, body, .App {
   background-color: rgb(255, 190, 190);
   border-color: rgb(221, 13, 13);
 }
+.close-modal-button {
+  position: absolute;
+  top: .5em;
+  right: .5em;
+  border: 2px solid transparent;
+  padding: .2em;
+}
+.close-modal-button svg {
+  vertical-align: middle;
+}
+.close-modal-button:hover, .close-modal-button:focus {
+  border: 2px solid var(--secondary-dark);
+  cursor: pointer;
+}
+.recipe-modal-yes-delete-button {
+  border-color: red;
+  color: rgb(63, 2, 2);
+  background-color: rgb(255, 182, 182);
+}
+.recipe-modal-yes-delete-button {}
 /********************** 
   RECIPE FORM STYLES
 ***********************/
-.recipe-form {
-  /* padding: 1em; */
-}
 .recipe-form label {
   display: block;
   align-self: center;
