@@ -157,19 +157,24 @@ html, body, .App {
 ***********************/
 .recipes {
   list-style-type: none;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  /* display: grid;
+  grid-template-columns: 1fr 1fr; */
 }
 .recipe {
   border: 2px solid var(--primary-dark);
   border-radius: 3px;
   margin: 2em;
-  padding: .5em;
+  /* padding: .5em; */
+}
+.recipe h3 {
+  padding-left: .5em;
 }
 .recipe-header {
   display: flex;
+  gap: 2em;
   font-size: 1.1rem;
-  justify-content: space-between;
+  background-color: #8ec9f3;
+  padding: .5em;
 }
 .recipe-time {
   align-self: center;
@@ -178,36 +183,49 @@ html, body, .App {
 }
 .recipe-description {
   font-size: .87rem;
+  padding-left: 0.5em;
   width: fit-content;
   color: rgb(51, 51, 51);
-  border-bottom: 1px solid black;
 }
 .recipe-ingredients {
-  list-style-type: circle;
-  border-bottom: 1px solid black;
-  width: max-content;
+  list-style-type: none;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 .recipe-ingredient {
-  margin-left: 2em;
+  margin-inline: 1em;
   padding-block: .2em;
-}
-.ingredient-amount{
   font-weight: bold;
 }
-.ingredient-unit{
-  font-weight: bold;
+.ingredient-name {
+  font-weight: normal;
 }
 .recipe-directions {
   list-style-type: decimal;
 }
 .recipe-direction {
   list-style-position: inside;
+  margin-inline: 1em;
   margin-block: .2em;
 }
 .recipe-direction::first-letter {
   font-weight: bold;
+}
+/* EDIT BUTTON STYLES */
+.recipe-edit-button {
+  color: var(--secondary-dark);
+  align-self: center;
+  padding: .2em;
+  padding-bottom: .4em;
+  transition: 300ms;
+}
+.recipe-edit-button svg {
+  vertical-align: bottom;
+}
+.recipe-edit-button:hover, .recipe-edit-button:focus {
+  background-color: var(--primary-light);
+  border-radius: 70%;
+  cursor: pointer;
 }
 /********************** 
   RECIPE FORM STYLES
