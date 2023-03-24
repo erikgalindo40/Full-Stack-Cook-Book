@@ -1,10 +1,11 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Ingredient from './Ingredient'
 import Direction from './Direction'
 import { v4 } from 'uuid'
 import { BiFoodMenu } from 'react-icons/bi'
+import { GrUpdate } from 'react-icons/gr'
 
-function RecipeForm() {
+function RecipeForm({ recipeEditInfo }) {
     const [ingredients, setIngredients] = useState([])
     const [directions, setDirections] = useState([])
     const [recipeName, setRecipeName] = useState('')
@@ -14,6 +15,7 @@ function RecipeForm() {
     const [recipeError, setRecipeError] = useState(false)
     const [recipePending, setRecipePending] = useState(false)
     const [recipeErrorMessage, setRecipeErrorMessage] = useState('')
+    const [isEditing, setIsEditing] = useState(false)
 
     const onAddIngredient = (e) => {
         e.preventDefault()
@@ -87,11 +89,61 @@ function RecipeForm() {
             setRecipeError(true)
             error.json().then(err=>setRecipeErrorMessage(err.message))
         })
+    }
+    const onUpdate = (e, id, newRecipe) => {
+        e.preventDefault()
+        setRecipePending(true)
+        const user = JSON.parse(localStorage.getItem('user'))
+        
+        fetch(`http://localhost:5000/api/recipes/${id}`,{
+            method:'PUT',
+            headers: {
+                'content-type': 'application/json',
+                authorization: `Bearer ${user.token}`,
+            },
+            body: JSON.stringify(newRecipe),
+        })
+        .then(response=>{
+            if(!response.ok) {
+                throw response
+            }
+            return response.json()
+        })
+        .then(data=>{
+            setRecipePending(false)
+            setRecipeSuccess(true)
+            setIsEditing(false)
+            setRecipeName('')
+            setRecipeTime('')
+            setRecipeDescription('')
+            setIngredients([])
+            setDirections([])
+        })
+        .catch(error=>{
+            setRecipePending(false)
+            setRecipeError(true)
+            error.json().then(err=>setRecipeErrorMessage(err.message))
+        })
+    }
+
+    useEffect(() => {
+        if(recipeEditInfo.recipe) {
+            setIsEditing(true)
+            setRecipeName(recipeEditInfo.recipe)
+            setRecipeTime(recipeEditInfo.time)
+            setRecipeDescription(recipeEditInfo.description)
+            setIngredients(recipeEditInfo.ingredients)
+            setDirections(recipeEditInfo.directions)
         }
+        console.log('ran recipe effect')
+    }, [recipeEditInfo])
+    
 
     return (
-    <form onSubmit={(e)=>onSubmit(e, {name:recipeName, description:recipeDescription, time:recipeTime, ingredients:JSON.stringify(ingredients), directions:JSON.stringify(directions)})} className='recipe-form form'>
-        <h2>Create a recipe!</h2>
+    <form className='recipe-form form'>
+        {isEditing?
+        (<h2>Editing {recipeEditInfo.recipe}</h2>)
+        :(<h2>Create a recipe!</h2>)}
         {recipeSuccess&& <div>Success</div> }
         {recipeError&& <div className='error-message'>{recipeErrorMessage}</div> }
 
@@ -132,9 +184,9 @@ function RecipeForm() {
             <h3 className='recipe-form-sub-header'>Ingredients</h3>
         </div>
         <ul>
-            {ingredients.map(ingredient=> {
+            {ingredients?ingredients.map(ingredient=> {
                 return (<Ingredient key={ingredient.id} keyid={ingredient.id} onDeleteRecipeIngredient={onDeleteRecipeIngredient} onChangeRecipeIngredient={onChangeRecipeIngredient} unit={ingredient.unit} amount={ingredient.amount} name={ingredient.name}/>)
-            })}
+            }):(<div></div>)}
         </ul>
 
         <div className='recipe-sub-header-container'>    
@@ -142,12 +194,14 @@ function RecipeForm() {
             <h3 className='recipe-form-sub-header'>Directions</h3>
         </div>
         <ol className='recipe-form-directions'>
-            {directions.map(direction=>{
+            {directions?directions.map(direction=>{
                 return (<Direction key={direction.id} onDeleteRecipeDirection={onDeleteRecipeDirection} onChangeDirectionInfo={onChangeDirectionInfo} keyid={direction.id} text={direction.text} />)
-            })}
+            }):<div></div>}
         </ol>
         {recipePending&&<div>Creating...</div>}
-        <button className='form-button recipe-form-button'><BiFoodMenu/> CREATE</button>
+        {isEditing?
+        (<button onClick={(e)=>onUpdate(e, recipeEditInfo.id, {name:recipeName, description:recipeDescription, time:recipeTime, ingredients:JSON.stringify(ingredients), directions:JSON.stringify(directions)})} className='form-button recipe-form-button'><GrUpdate/> UPDATE</button>)
+        :(<button onClick={(e)=>onSubmit(e, {name:recipeName, description:recipeDescription, time:recipeTime, ingredients:JSON.stringify(ingredients), directions:JSON.stringify(directions)})} className='form-button recipe-form-button'><BiFoodMenu/> CREATE</button>)}
     </form>
     )
 }

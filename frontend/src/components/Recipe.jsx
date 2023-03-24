@@ -12,7 +12,7 @@ function Recipe({ recipeName, time, description, directions, ingredients, recipe
                 <p className='recipe-time'>{time}</p>
             </div>
             <div onClick={()=>{
-                setRecipeModalInfo({recipe:recipeName, id:recipeID})
+                setRecipeModalInfo({recipe:recipeName,time, description, id:recipeID, directions:parsedDirections, ingredients:parsedIngredients})
                 setEditRecipeModal(!editRecipeModal)
             }} 
             className='recipe-edit-button'>

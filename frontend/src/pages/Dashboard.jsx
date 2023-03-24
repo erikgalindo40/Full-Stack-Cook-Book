@@ -66,33 +66,32 @@ function Dashboard() {
       error.json().then(err=>console.log(`ERROR: ${err}`))
     })
 
-  }, [navigate])
+  }, [navigate, recipeModalInfo])
   
 
   return (
     <main className='dashboard-container'>
-      <RecipeForm />
-      {editRecipeModal&& 
-      <div className='recipe-modal'>
+      <RecipeForm recipeEditInfo={recipeModalInfo}/>
+      {editRecipeModal&&<div className='recipe-modal'>
         <button onClick={()=>setEditRecipeModal(!editRecipeModal)} className='close-modal-button'><ImCross/></button>
         What would you like to do with {recipeModalInfo.recipe}?
-        <button className='recipe-modal-edit-button modal-button'>EDIT</button>
+        <button onClick={()=>{
+          setEditRecipeModal(!editRecipeModal)}} className='recipe-modal-edit-button modal-button'>EDIT</button>
         <button onClick={()=>{
           setEditRecipeModal(!editRecipeModal)
           setDeleteRecipeModal(!deleteRecipeModal)}} className='recipe-modal-delete-button modal-button'>DELETE</button>
       </div>}
-      {deleteRecipeModal&& 
-      <div className='recipe-modal'>
+      {deleteRecipeModal&&<div className='recipe-modal'>
         <button onClick={()=>setDeleteRecipeModal(!deleteRecipeModal)} className='close-modal-button'><ImCross/></button>
         This is irreversible. <br/> Are you sure you want to <strong>DELETE</strong> {recipeModalInfo.recipe}?
         <button onClick={(e)=>onDeleteRecipe(e,recipeModalInfo.id)} className='recipe-modal-yes-delete-button modal-button'>Yes</button>
         <button onClick={()=>setDeleteRecipeModal(!deleteRecipeModal)} className='recipe-modal-no-delete-button modal-button'>No</button>
       </div>}
-        <ul className='recipes'>
-          {recipeList.map(recipe=>(
-            <Recipe setRecipeModalInfo={setRecipeModalInfo} setEditRecipeModal={setEditRecipeModal} editRecipeModal={editRecipeModal} key={recipe._id} recipeID={recipe._id} recipeName={recipe.name} ingredients={recipe.ingredients} directions={recipe.directions} time={recipe.time} description={recipe.description}/>
-          ))}
-        </ul>
+      <ul className='recipes'>
+        {recipeList.map(recipe=>(
+          <Recipe setRecipeModalInfo={setRecipeModalInfo} setEditRecipeModal={setEditRecipeModal} editRecipeModal={editRecipeModal} key={recipe._id} recipeID={recipe._id} recipeName={recipe.name} ingredients={recipe.ingredients} directions={recipe.directions} time={recipe.time} description={recipe.description}/>
+        ))}
+      </ul>
     </main>
   )
 }
