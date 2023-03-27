@@ -151,12 +151,11 @@ function RecipeForm({ recipeEditInfo }) {
         {isEditing?
         (<h2>Editing {recipeEditInfo.recipe}</h2>)
         :(<h2>Create a recipe!</h2>)}
-        {recipeSuccess&& <div>Success</div> }
         {recipeError&& <div className='error-message'>{recipeErrorMessage}</div> }
 
         <div className='recipe-header-container'>
         <label htmlFor="recipe-name">Recipe Name:</label>
-        <input value={recipeName} onChange={onChangeRecipeName} className='recipe-form-input' type="text" id='recipe-name' />
+        <input value={recipeName} onChange={onChangeRecipeName} className='recipe-form-input recipe-form-name' type="text" id='recipe-name' />
 
         <label htmlFor="time-lengths">Time Estimate:</label>
         <select value={recipeTime} onChange={onChangeRecipeTime} className='recipe-form-select' id='time-lengths'>
@@ -205,6 +204,7 @@ function RecipeForm({ recipeEditInfo }) {
                 return (<Direction key={direction.id} onDeleteRecipeDirection={onDeleteRecipeDirection} onChangeDirectionInfo={onChangeDirectionInfo} keyid={direction.id} text={direction.text} />)
             }):<div></div>}
         </ol>
+        {recipeSuccess&& <div className='recipe-form-success-message'>Success</div> }
         {recipePending&&<div>Creating...</div>}
         {isEditing?
         (<button onClick={(e)=>onUpdate(e, recipeEditInfo.id, {name:recipeName, description:recipeDescription, time:recipeTime, ingredients:JSON.stringify(ingredients), directions:JSON.stringify(directions)})} className='form-button recipe-form-button'><GrUpdate/> UPDATE</button>)

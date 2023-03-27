@@ -276,7 +276,6 @@ html, body, .App {
   color: rgb(63, 2, 2);
   background-color: rgb(255, 182, 182);
 }
-.recipe-modal-yes-delete-button {}
 /********************** 
   RECIPE FORM STYLES
 ***********************/
@@ -294,22 +293,18 @@ html, body, .App {
   margin-top: 1em;
   border-radius: 5px;
 }
-.recipe-add-button {
-  outline: none;
-  border: none;
-  background-color: var(--secondary-light);
-  color: var(--secondary-dark);
-  padding-inline: 1em;
-  transition: 250ms;
+.recipe-header-container {
+  display: flex;
+  flex-direction: column;
 }
-.recipe-add-button:hover, .recipe-add-button:focus {
-  cursor: pointer;
-  background-color: var(--primary-light);
+.recipe-form-name {
+  max-width: 50%;
 }
+/* TIME & TEXTAREA */
 .recipe-form-textarea {
   min-width: 10rem;
-  max-width: 13rem;
-  min-height: 1rem;
+  max-width: 80%;
+  min-height: 1.5rem;
   padding: .2em;
 }
 .recipe-form-select, .recipe-form-textarea {
@@ -323,37 +318,47 @@ html, body, .App {
   outline: none;
   background-color: var(--background-light);
 }
+/* INGREDIENTS */
 .recipe-ingredient-container {
+  position: relative;
+  display: grid;
+  gap: .3em;
+  grid-template-columns: 25% 1fr;
+  margin-inline: auto;
+  width: fit-content;
+  margin-bottom: 1.2em;
+  padding: .5em;
+  background-color: #eeeeee;
+}
+.recipe-ingredient-container label {
+  width: fit-content;
+  text-align: center;
+}
+.ingredient-info {
+  border: 2px solid var(--secondary-dark) !important;
+}
+/* DIRECTIONS */
+.recipe-form-directions {
   display: flex;
-  gap: 1em;
-  margin-inline: 1em;
-  padding-block: .35em;
-}
-.ingredient-name {
-  width: 8rem;
-}
-.ingredient-unit {
-  max-width: 7em;
-}
-.ingredient-amount {
-  width: 3em;
-}
-.recipe-header-container {
-  display: flex;
-  justify-content: space-evenly;
-}
-.direction-textarea {
-  min-width: 30em;
-  max-height: 3rem;
+  flex-direction: column;
+  align-items: center;
+  gap: .3em;
 }
 .recipe-form-direction {
-  margin-inline: 3em;
+  position: relative;
+  max-width: 80%;
 }
-.recipe-form-input {
-  margin: 0 !important;
+.direction-textarea {
+  max-height: 2.8rem;
 }
+/* FORM BUTTONS */
+/*delete*/
 .delete-form-item-button {
   border: none;
+  width: fit-content;
+  align-self: center;
+  padding: .7em;
+  background-color: transparent;
   transition: 200ms ease-out;
 }
 .delete-form-item-button:hover, .delete-form-item-button:focus {
@@ -365,11 +370,42 @@ html, body, .App {
   vertical-align: text-bottom;
 }
 .direction-delete-button {
-  padding-inline: 1em;
-  vertical-align: text-top;
+  top: 0;
+  position: absolute;
+  margin-left: .4em;
 }
+.ingredient-delete-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+/*add*/
+.recipe-add-button {
+  outline: none;
+  border: none;
+  background-color: var(--secondary-light);
+  color: var(--secondary-dark);
+  padding-inline: 1em;
+  transition: 250ms;
+}
+.recipe-add-button:hover, .recipe-add-button:focus {
+  cursor: pointer;
+  background-color: var(--primary-light);
+}
+/* OTHER */
 .recipe-form-button svg {
   vertical-align: top;
+}
+.recipe-form-input {
+  width: 80%;
+  align-self: center;
+  margin: 0 !important;
+}
+.recipe-form-success-message {
+  background-color: rgb(139, 241, 139);
+  padding: 1em;
+  margin-bottom: 1em;
+  font-weight: bold;
 }
 /********************** 
     DASHBOARD STYLES
