@@ -134,6 +134,13 @@ function RecipeForm({ recipeEditInfo }) {
             setRecipeDescription(recipeEditInfo.description)
             setIngredients(recipeEditInfo.ingredients)
             setDirections(recipeEditInfo.directions)
+        } else {
+            setIsEditing(false)
+            setRecipeName('')
+            setRecipeTime('')
+            setRecipeDescription('')
+            setIngredients([])
+            setDirections([])
         }
         console.log('ran recipe effect')
     }, [recipeEditInfo])
