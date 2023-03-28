@@ -5,7 +5,7 @@ import { v4 } from 'uuid'
 import { BiFoodMenu } from 'react-icons/bi'
 import { GrUpdate } from 'react-icons/gr'
 
-function RecipeForm({ recipeEditInfo }) {
+function RecipeForm({ recipeEditInfo, setRecipeModalInfo }) {
     const [ingredients, setIngredients] = useState([])
     const [directions, setDirections] = useState([])
     const [recipeName, setRecipeName] = useState('')
@@ -81,8 +81,12 @@ function RecipeForm({ recipeEditInfo }) {
             return response.json()
         })
         .then(data=>{
+            setRecipeModalInfo({})
             setRecipePending(false)
             setRecipeSuccess(true)
+            setTimeout(() => {
+                setRecipeSuccess(false)
+            }, 3000);
         })
         .catch(error=>{
             setRecipePending(false)
