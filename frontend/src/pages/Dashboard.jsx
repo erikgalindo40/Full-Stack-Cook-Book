@@ -2,7 +2,6 @@ import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import RecipeForm from '../components/RecipeForm'
 import Recipe from '../components/Recipe'
-import { ImCross } from 'react-icons/im'
 
 function Dashboard() {
   const navigate = useNavigate()
@@ -41,7 +40,7 @@ function Dashboard() {
 
   return (
     <main className='dashboard-container'>
-      <RecipeForm recipeEditInfo={recipeModalInfo} setRecipeModalInfo={setRecipeModalInfo}/>
+      <RecipeForm setRecipeList={setRecipeList} recipeEditInfo={recipeModalInfo} setRecipeModalInfo={setRecipeModalInfo}/>
       <ul className='recipes'>
         {recipeList.map(recipe=>(
           <Recipe setRecipeList={setRecipeList} setRecipeModalInfo={setRecipeModalInfo} key={recipe._id} recipeID={recipe._id} recipeName={recipe.name} ingredients={recipe.ingredients} directions={recipe.directions} time={recipe.time} description={recipe.description}/>

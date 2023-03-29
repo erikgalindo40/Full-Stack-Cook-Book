@@ -4,9 +4,8 @@ import Direction from './Direction'
 import { v4 } from 'uuid'
 import { BiFoodMenu } from 'react-icons/bi'
 import { GrUpdate } from 'react-icons/gr'
-import { ImCross } from 'react-icons/im'
 
-function RecipeForm({ recipeEditInfo, setRecipeModalInfo }) {
+function RecipeForm({ recipeEditInfo, setRecipeList }) {
     const [ingredients, setIngredients] = useState([])
     const [directions, setDirections] = useState([])
     const [recipeName, setRecipeName] = useState('')
@@ -88,6 +87,7 @@ function RecipeForm({ recipeEditInfo, setRecipeModalInfo }) {
                 setRecipeSuccess(false)
             }, 2000);
             resetRecipeState()
+            setRecipeList(prevState=>([...prevState, data]))
         })
         .catch(error=>{
             setRecipePending(false)
@@ -118,6 +118,10 @@ function RecipeForm({ recipeEditInfo, setRecipeModalInfo }) {
             setRecipePending(false)
             setRecipeSuccess(true)
             resetRecipeState()
+            setTimeout(() => {
+                setRecipeSuccess(false)
+            }, 2000);
+            setRecipeList(prevState=>(prevState.map(recipe=>recipe._id===data._id?data:recipe)))
         })
         .catch(error=>{
             setRecipePending(false)
@@ -133,7 +137,7 @@ function RecipeForm({ recipeEditInfo, setRecipeModalInfo }) {
         setIngredients([])
         setDirections([])
     }
-// TO FIX: ISEDITING NOT WORKING, RECIPE DELETE STATES NOT SHOWING
+
     useEffect(() => {
         if(recipeEditInfo.recipe) {
             setIsEditing(true)
