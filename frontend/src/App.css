@@ -279,6 +279,12 @@ html, body, .App {
 /********************** 
   RECIPE FORM STYLES
 ***********************/
+.recipe-form {
+  position: relative;
+}
+.recipe-form h2 {
+  padding-inline: 1.85em;
+}
 .recipe-form label {
   display: block;
   align-self: center;
@@ -393,6 +399,24 @@ html, body, .App {
   background-color: var(--primary-light);
 }
 /* OTHER */
+.stop-edit-button {
+  position: absolute;
+  top: .3em;
+  right: .3em;
+  border: 2px solid grey;
+  padding: .2em;
+  color: grey;
+  border-radius: 3px;
+  transition: 150ms;
+}
+.stop-edit-button svg {
+  vertical-align: middle;
+}
+.stop-edit-button:hover, .stop-edit-button:focus {
+  border: 2px solid red;
+  color: red;
+  cursor: pointer;
+}
 .recipe-form-button svg {
   vertical-align: top;
 }

@@ -4,6 +4,7 @@ import Direction from './Direction'
 import { v4 } from 'uuid'
 import { BiFoodMenu } from 'react-icons/bi'
 import { GrUpdate } from 'react-icons/gr'
+import { ImCross } from 'react-icons/im'
 
 function RecipeForm({ recipeEditInfo, setRecipeModalInfo }) {
     const [ingredients, setIngredients] = useState([])
@@ -81,12 +82,12 @@ function RecipeForm({ recipeEditInfo, setRecipeModalInfo }) {
             return response.json()
         })
         .then(data=>{
-            setRecipeModalInfo({})
             setRecipePending(false)
             setRecipeSuccess(true)
             setTimeout(() => {
                 setRecipeSuccess(false)
-            }, 3000);
+            }, 2000);
+            resetRecipeState()
         })
         .catch(error=>{
             setRecipePending(false)
@@ -116,12 +117,7 @@ function RecipeForm({ recipeEditInfo, setRecipeModalInfo }) {
         .then(data=>{
             setRecipePending(false)
             setRecipeSuccess(true)
-            setIsEditing(false)
-            setRecipeName('')
-            setRecipeTime('')
-            setRecipeDescription('')
-            setIngredients([])
-            setDirections([])
+            resetRecipeState()
         })
         .catch(error=>{
             setRecipePending(false)
@@ -129,7 +125,15 @@ function RecipeForm({ recipeEditInfo, setRecipeModalInfo }) {
             error.json().then(err=>setRecipeErrorMessage(err.message))
         })
     }
-
+    const resetRecipeState = () => {
+        setIsEditing(false)
+        setRecipeName('')
+        setRecipeTime('')
+        setRecipeDescription('')
+        setIngredients([])
+        setDirections([])
+    }
+// TO FIX: ISEDITING NOT WORKING, RECIPE DELETE STATES NOT SHOWING
     useEffect(() => {
         if(recipeEditInfo.recipe) {
             setIsEditing(true)
@@ -139,12 +143,7 @@ function RecipeForm({ recipeEditInfo, setRecipeModalInfo }) {
             setIngredients(recipeEditInfo.ingredients)
             setDirections(recipeEditInfo.directions)
         } else {
-            setIsEditing(false)
-            setRecipeName('')
-            setRecipeTime('')
-            setRecipeDescription('')
-            setIngredients([])
-            setDirections([])
+            resetRecipeState()
         }
         console.log('ran recipe effect')
     }, [recipeEditInfo])
@@ -152,6 +151,8 @@ function RecipeForm({ recipeEditInfo, setRecipeModalInfo }) {
 
     return (
     <form className='recipe-form form'>
+        {isEditing&&<button onClick={()=>{resetRecipeState()
+            setIsEditing(false)}} className='stop-edit-button'>STOP</button>}
         {isEditing?
         (<h2>Editing {recipeEditInfo.recipe}</h2>)
         :(<h2>Create a recipe!</h2>)}
