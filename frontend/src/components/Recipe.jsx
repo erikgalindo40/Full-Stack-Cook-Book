@@ -25,14 +25,13 @@ function Recipe({ recipeName, time, description, directions, ingredients, recipe
         })
         .then(response=>{
             if(!response.ok) {
-            throw Promise.reject(response)
+                throw response
             }
             return response.json()
         })
         .then(data=>{
             setDeletePending(false)
             setDeleteSuccess(true)
-            setRecipeList(prevState=>prevState.filter(recipe=>recipe._id!==data.id))
         })
         .catch(error=>{
             setDeletePending(false)
@@ -42,6 +41,7 @@ function Recipe({ recipeName, time, description, directions, ingredients, recipe
         setDeleteRecipeModal(false)
         setIsRecipeModal(false)
         }
+        //fix delete state not showing and submit error message 
 
     return (
     <>
@@ -87,16 +87,16 @@ function Recipe({ recipeName, time, description, directions, ingredients, recipe
         setDeleteRecipeModal(!deleteRecipeModal)}} className='recipe-modal-delete-button modal-button'>DELETE</button>
     </div>}
     {deleteRecipeModal&&<div className='recipe-modal'>
-        <button onClick={()=>{setRecipeModalInfo({})
-        setDeleteRecipeModal(!deleteRecipeModal)}} className='close-modal-button'><ImCross/></button>
+        <button onClick={()=>{setDeleteRecipeModal(!deleteRecipeModal)}} className='close-modal-button'><ImCross/></button>
         This is irreversible. <br/> Are you sure you want to <strong>DELETE</strong> {recipeName}?
         <button onClick={(e)=>onDeleteRecipe(e, recipeID)} className='recipe-modal-yes-delete-button modal-button'>Yes</button>
-        <button onClick={()=>{setRecipeModalInfo({})
-        setDeleteRecipeModal(!deleteRecipeModal)}} className='recipe-modal-no-delete-button modal-button'>No</button>
+        <button onClick={()=>{setDeleteRecipeModal(!deleteRecipeModal)}} className='recipe-modal-no-delete-button modal-button'>No</button>
     </div>}
     {deletePending&&<div className='recipe-modal'><p>Deleting...</p></div>}
-    {deleteSuccess&&<div className='recipe-modal'><button className='close-modal-button' onClick={()=>setDeleteSuccess(false)}><ImCross/></button><p>Delete Successful</p></div>}
-    {deleteError&&<div className='recipe-modal'><button className='close-modal-button' onClick={()=>setDeleteError(false)}><ImCross/></button><p>Delete Error. Try again Later. {errorMessage}</p></div>}
+    {deleteSuccess&&<div className='recipe-modal'><button className='close-modal-button' onClick={()=>{
+        setRecipeList(prevState=>prevState.filter(recipe=>recipe._id!==recipeID))
+        setDeleteSuccess(false)}}><ImCross/></button><p>Delete Successful</p></div>}
+    {deleteError&&<div className='recipe-modal'><button className='close-modal-button' onClick={()=>setDeleteError(false)}><ImCross/></button><p><strong>Delete Error.</strong><br/> {errorMessage||`Try Again Later.`}</p></div>}
     </>
 )
 }
