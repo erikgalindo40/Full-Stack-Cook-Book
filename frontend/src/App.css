@@ -441,3 +441,7 @@ html, body, .App {
   align-items: center;
   justify-content: center;
 }
+.no-recipes-text {
+  font-weight: bold;
+  padding: 1em;
+}

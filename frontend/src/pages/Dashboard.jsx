@@ -7,6 +7,7 @@ function Dashboard() {
   const navigate = useNavigate()
   const [recipeList, setRecipeList] = useState([])
   const [recipeModalInfo, setRecipeModalInfo] = useState({})
+  const [error, setError] = useState(false)
 
   useEffect(() => {
     console.log('ran effect')
@@ -17,7 +18,7 @@ function Dashboard() {
 
     const user = JSON.parse(localStorage.getItem('user'))
 
-    fetch('/api/recipes', {
+    fetch('http://localhost:5000/api/recipes', {
       headers:{
         authorization: `Bearer ${user.token}`
       }
@@ -32,6 +33,7 @@ function Dashboard() {
       setRecipeList(data)
     })
     .catch(error=>{
+      setError(true)
       error.json().then(err=>console.log(`ERROR: ${err}`))
     })
 
@@ -41,11 +43,15 @@ function Dashboard() {
   return (
     <main className='dashboard-container'>
       <RecipeForm setRecipeList={setRecipeList} recipeEditInfo={recipeModalInfo} setRecipeModalInfo={setRecipeModalInfo}/>
-      <ul className='recipes'>
+      {error&&<div className='recipe-modal'><button onClick={()=>setError(false)} className='close-modal-button'>x</button> There was an issue retrieving your recipes. Please try again later.</div> }
+      {recipeList.length===0?
+      (<div className='no-recipes-text'>No recipes to display yet!</div>)
+      :(<ul className='recipes'>
         {recipeList.map(recipe=>(
           <Recipe setRecipeList={setRecipeList} setRecipeModalInfo={setRecipeModalInfo} key={recipe._id} recipeID={recipe._id} recipeName={recipe.name} ingredients={recipe.ingredients} directions={recipe.directions} time={recipe.time} description={recipe.description}/>
         ))}
-      </ul>
+      </ul>)}
+      
     </main>
   )
 }

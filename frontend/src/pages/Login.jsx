@@ -23,7 +23,7 @@ function Login() {
   const onSubmit = (e) => {
     e.preventDefault()
     setIsPending(true)
-    fetch('/api/users/login', {
+    fetch('http://localhost:5000/api/users/login', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',

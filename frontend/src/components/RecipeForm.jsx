@@ -137,6 +137,9 @@ function RecipeForm({ recipeEditInfo, setRecipeList }) {
         setIngredients([])
         setDirections([])
     }
+    const hideRecipeErrorMessage = () => {
+        setTimeout(() => {setRecipeError(false)}, 5000)
+    }
 
     useEffect(() => {
         if(recipeEditInfo.recipe) {
@@ -160,7 +163,7 @@ function RecipeForm({ recipeEditInfo, setRecipeList }) {
         {isEditing?
         (<h2>Editing {recipeEditInfo.recipe}</h2>)
         :(<h2>Create a recipe!</h2>)}
-        {recipeError&& <div className='error-message'>{recipeErrorMessage}</div> }
+        {recipeError&& <div onClick={hideRecipeErrorMessage()} className='error-message'>{recipeErrorMessage||'Error. Try again later.'}</div> }
 
         <div className='recipe-header-container'>
         <label htmlFor="recipe-name">Recipe Name:</label>

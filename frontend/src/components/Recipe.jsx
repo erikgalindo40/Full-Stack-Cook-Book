@@ -17,7 +17,7 @@ function Recipe({ recipeName, time, description, directions, ingredients, recipe
         setDeletePending(true)
         const user = JSON.parse(localStorage.getItem('user'))
     
-        fetch(`/api/recipes/${id}`, {
+        fetch(`http://localhost:5000/api/recipes/${id}`, {
             method:'DELETE',
             headers:{
             authorization: `Bearer ${user.token}`
@@ -41,7 +41,6 @@ function Recipe({ recipeName, time, description, directions, ingredients, recipe
         setDeleteRecipeModal(false)
         setIsRecipeModal(false)
         }
-        //fix delete state not showing and submit error message 
 
     return (
     <>
