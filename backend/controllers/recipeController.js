@@ -18,7 +18,7 @@ const createRecipe = asyncHandler(async (req,res) => {
 
     if (name=='' || ingredients=='' || directions=='' || description=='' || time=='') {
         res.status(400)
-        throw new Error('Please add required fields')
+        throw new Error('Please add all fields')
     }
 
     const recipe = await Recipe.create({
