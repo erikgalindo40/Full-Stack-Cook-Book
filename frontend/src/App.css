@@ -178,7 +178,6 @@ html, body, .App {
 }
 .recipe-time {
   align-self: center;
-  font-weight: bold;
   color: var(--secondary-dark);
 }
 .recipe-description {
@@ -189,8 +188,6 @@ html, body, .App {
 }
 .recipe-ingredients {
   list-style-type: none;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
 }
 .recipe-ingredient {
   margin-inline: 1em;
@@ -207,9 +204,6 @@ html, body, .App {
   list-style-position: inside;
   margin-inline: 1em;
   margin-block: .2em;
-}
-.recipe-direction::first-letter {
-  font-weight: bold;
 }
 /* EDIT BUTTON STYLES */
 .recipe-edit-button {

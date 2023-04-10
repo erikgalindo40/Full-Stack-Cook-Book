@@ -9,9 +9,9 @@ function Ingredient({ unit, amount, name, keyid, onChangeRecipeIngredient, onDel
             <label htmlFor="ingredient-unit">Unit:</label>
             <input name='unit' value={unit} onChange={(e)=>onChangeRecipeIngredient(e, keyid)} className='recipe-form-input ingredient-unit ingredient-info' list='ingredient-units' id='ingredient-unit'/>
             <datalist id='ingredient-units'>
-                <option value="handful/s"></option>
-                <option value="pinch/s"></option>
-                <option value="cup/s"></option>
+                <option value="handfuls"></option>
+                <option value="pinches"></option>
+                <option value="cups"></option>
                 <option value="tbsp."></option>
                 <option value="tsp."></option>
                 <option value="oz."></option>
