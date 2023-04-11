@@ -22,12 +22,10 @@ html, body, .App {
 }
 
 :root {
-  --secondary-dark: #171A21;
-  --secondary-light: #8ec9f3;
-  --primary-dark: #FF8811;
-  --primary-light: #eeb155;
-  --background-light: #E8DDB5;
+  --secondary: #e2e2e2;
+  --primary: #000000;
   --font-light: #EEEEEE;
+  --font-dark: #000000;
 }
 
 /********************** 
@@ -38,16 +36,15 @@ html, body, .App {
   font-size: 1.2rem;
   font-weight: bold;
   justify-content: space-between;
-  background: var(--secondary-light);
+  background: var(--secondary);
   padding: 1em;
   padding-inline: 2em;
 }
 .logout-button {
   padding: .5em;
   background-color: transparent;
-  border: 2px solid var(--secondary-dark);
   border-radius: 5px;
-  color: var(--secondary-dark);
+  color: var(--font-dark);
   font-weight: bold;
   transition: 150ms;
 }
@@ -58,15 +55,14 @@ html, body, .App {
 .logout-button:hover, .logout-button:focus {
   cursor: pointer;
   color: var(--font-light);
-  background-color: var(--primary-light);
-  border-color: var(--primary-dark);
+  background-color: var(--primary);
+  border-color: var(--primary);
 }
 /********************** 
       FOOTER STYLES
 ***********************/
 .footer {
-  color: var(--secondary-dark);
-  background-color: var(--primary-dark);
+  background-color: var(--primary);
   padding: 1em;
   padding-inline: 2em;
 }
@@ -76,7 +72,7 @@ html, body, .App {
 .form {
   display: flex;
   flex-direction: column;
-  border: 2px solid var(--primary-dark);
+  border: 2px solid var(--primary);
   border-radius: 5px;
   width: min(95vw, 35em);
   gap: .5em;
@@ -89,7 +85,7 @@ html, body, .App {
 }
 .form-link {
   text-decoration: none;
-  color: var(--primary-dark);
+  color: var(--primary);
   font-weight: 500;
 }
 .form-link:hover {
@@ -100,13 +96,13 @@ html, body, .App {
   margin-inline: auto;
   border: none;
   background-color: transparent;
-  border-bottom: 2px solid var(--secondary-dark);
+  border-bottom: 2px solid var(--secondary);
   padding: .4em;
   transition: 150ms;
 }
 .form input:focus {
   outline: none;
-  background-color: var(--background-light);
+  background-color: var(--secondary);
   border-radius: 5px 5px 0 0;
 }
 .form input::placeholder {
@@ -116,7 +112,7 @@ html, body, .App {
   border: none;
   padding: 1em;
   font-weight: bold;
-  background-color: var(--secondary-light);
+  background-color: var(--secondary);
   transition: 250ms;
   font-size: 1.1rem;
 }
@@ -127,7 +123,7 @@ html, body, .App {
 .form-button:hover, .form-button:focus {
   cursor: pointer;
   color: var(--font-light);
-  background-color: var(--primary-light);
+  background-color: var(--primary);
 }
 .error-message {
   color: rgb(100, 14, 14);
@@ -157,28 +153,27 @@ html, body, .App {
 ***********************/
 .recipes {
   list-style-type: none;
-  /* display: grid;
-  grid-template-columns: 1fr 1fr; */
 }
 .recipe {
-  border: 2px solid var(--primary-dark);
+  border: 2px solid var(--primary);
   border-radius: 3px;
   margin: 2em;
+  width: 80vw;
+  padding-bottom: .3em;
 }
 .recipe h3 {
   padding-left: .5em;
 }
 .recipe-header {
   display: flex;
+  background-color: var(--secondary);
   justify-content: space-between;
   gap: 2em;
   font-size: 1.1rem;
-  background-color: #8ec9f3;
   padding: .5em;
 }
 .recipe-time {
   align-self: center;
-  color: var(--secondary-dark);
 }
 .recipe-description {
   font-size: .87rem;
@@ -207,19 +202,19 @@ html, body, .App {
 }
 /* EDIT BUTTON STYLES */
 .recipe-edit-button {
-  color: var(--secondary-dark);
+  color: var(--font-dark);
   align-self: center;
   padding: .2em;
   padding-bottom: .4em;
   transition: 150ms;
-  border: 2px solid transparent;
+  border-radius: 25px;
 }
 .recipe-edit-button svg {
   vertical-align: bottom;
 }
 .recipe-edit-button:hover, .recipe-edit-button:focus {
-  background-color: var(--primary-light);
-  border: 2px solid var(--secondary-dark);
+  background-color: var(--primary);
+  color: var(--font-light);
   cursor: pointer;
 }
 /* RECIPE MODAL STYLES */
@@ -231,7 +226,7 @@ html, body, .App {
   transform: translate(-50%,-50%);
   background-color: var(--font-light);
   padding: 2em;
-  box-shadow: 2px 2px 5px var(--secondary-dark);
+  box-shadow: 2px 2px 5px var(--secondary);
   display: flex;
   flex-direction: column;
   gap: 1em;
@@ -262,7 +257,7 @@ html, body, .App {
   vertical-align: middle;
 }
 .close-modal-button:hover, .close-modal-button:focus {
-  border: 2px solid var(--secondary-dark);
+  border: 2px solid var(--secondary);
   cursor: pointer;
 }
 .recipe-modal-yes-delete-button {
@@ -277,7 +272,7 @@ html, body, .App {
 }
 @media (min-width:1800px) {
   .recipes {
-    margin-top: 5em;
+    margin-top: 3em;
   }
 }
 
@@ -299,7 +294,7 @@ html, body, .App {
   align-self: center;
   gap: 1em;
   font-weight: bold;
-  background-color: var(--background-light);
+  background-color: var(--secondary);
   padding-right: 1em;
   margin-top: 1em;
   border-radius: 5px;
@@ -310,6 +305,7 @@ html, body, .App {
 }
 .recipe-form-name {
   max-width: 50%;
+  border-color: var(--primary) !important;
 }
 /* TIME & TEXTAREA */
 .recipe-form-textarea {
@@ -322,12 +318,12 @@ html, body, .App {
   align-self: center;
   width: fit-content;
   border: none;
-  border-bottom: 2px solid var(--secondary-dark);
+  border-bottom: 2px solid var(--primary);
   background-color: transparent;
 }
 .recipe-form-select:focus {
   outline: none;
-  background-color: var(--background-light);
+  background-color: var(--secondary);
 }
 /* INGREDIENTS */
 .recipe-ingredient-container {
@@ -339,14 +335,14 @@ html, body, .App {
   width: fit-content;
   margin-bottom: 1.2em;
   padding: .5em;
-  background-color: #eeeeee;
+  background-color: var(--secondary);
 }
 .recipe-ingredient-container label {
   width: fit-content;
   text-align: center;
 }
 .ingredient-info {
-  border: 2px solid var(--secondary-dark) !important;
+  border: 2px solid var(--primary) !important;
 }
 /* DIRECTIONS */
 .recipe-form-directions {
@@ -394,14 +390,14 @@ html, body, .App {
 .recipe-add-button {
   outline: none;
   border: none;
-  background-color: var(--secondary-light);
-  color: var(--secondary-dark);
+  background-color: var(--secondary);
   padding-inline: 1em;
   transition: 250ms;
 }
 .recipe-add-button:hover, .recipe-add-button:focus {
   cursor: pointer;
-  background-color: var(--primary-light);
+  color: var(--font-light);
+  background: var(--primary);
 }
 /* OTHER */
 .stop-edit-button {
