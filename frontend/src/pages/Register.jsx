@@ -1,6 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { useState,useEffect } from 'react'
 import { HiOutlineUserAdd } from 'react-icons/hi'
+import Spinner from '../components/Spinner'
 
 function Register() {
   const navigate = useNavigate()
@@ -77,7 +78,7 @@ function Register() {
         <input onChange={onChange} type="password" value={password} name='password' id='password' placeholder='Password'/>
         <label htmlFor="password2"></label>
         <input onChange={onChange} type="password" value={password2} name='password2' id='password2' placeholder='Confirm Password'/>
-        {isPending&&<div className='loading-message'>Please Wait...</div>}
+        {isPending&&<><div className='loading-message'>Please Wait...</div><Spinner/></>}
         <p>Have an account? <Link to={'/login/'} className='form-link'>Login</Link></p>
         <button className='form-button'><HiOutlineUserAdd /> Register</button>
       </form>

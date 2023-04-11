@@ -27,7 +27,19 @@ html, body, .App {
   --font-light: #EEEEEE;
   --font-dark: #000000;
 }
-
+/* SPINNER STYLES */
+.spinner-container {
+  font-size: 1.5rem;
+  animation: spin 1.2s linear infinite;
+}
+@keyframes spin {
+  0% {
+    rotate: 0deg;
+  }
+  100% {
+    rotate: 360deg;
+  }
+}
 /********************** 
       HEADER STYLES
 ***********************/
@@ -79,6 +91,9 @@ html, body, .App {
 
   text-align: center;
 }
+.form h1 {
+  font-size: 3rem;
+}
 .form p {
   padding-top: 2em;
   font-size: small;
@@ -87,6 +102,7 @@ html, body, .App {
   text-decoration: none;
   color: var(--primary);
   font-weight: 500;
+  font-size: 1rem;
 }
 .form-link:hover {
   text-decoration: underline;
@@ -96,7 +112,7 @@ html, body, .App {
   margin-inline: auto;
   border: none;
   background-color: transparent;
-  border-bottom: 2px solid var(--secondary);
+  border-bottom: 2px solid var(--primary);
   padding: .4em;
   transition: 150ms;
 }
@@ -226,7 +242,7 @@ html, body, .App {
   transform: translate(-50%,-50%);
   background-color: var(--font-light);
   padding: 2em;
-  box-shadow: 2px 2px 5px var(--secondary);
+  box-shadow: 3px 4px 5px var(--primary);
   display: flex;
   flex-direction: column;
   gap: 1em;
@@ -265,6 +281,9 @@ html, body, .App {
   color: rgb(63, 2, 2);
   background-color: rgb(255, 182, 182);
 }
+.delete-loading-modal {
+  align-items: center;
+}
 @media (min-width:620px) {
   .recipe {
     max-width: 40em;
@@ -284,6 +303,7 @@ html, body, .App {
 }
 .recipe-form h2 {
   padding-inline: 1.85em;
+  font-size: 2.2rem;
 }
 .recipe-form label {
   display: block;

@@ -1,6 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { IoLogInOutline } from 'react-icons/io5'
+import Spinner from '../components/Spinner'
 
 function Login() {
   const navigate = useNavigate()
@@ -65,7 +66,7 @@ function Login() {
         <input type="text" onChange={onChange} value={email} name='email' id='email' placeholder='Email'/>
         <label htmlFor="password"></label>
         <input type="password" onChange={onChange} value={password} name='password' id='name' placeholder='Password'/>
-        {isPending&&<div className='loading-message'>Please Wait...</div>}
+        {isPending&&<><div className='loading-message'>Please Wait...</div><Spinner/></>}
         <p>Need an account? <Link to={'/register/'} className='form-link'>Sign up</Link></p>
         <button className='form-button'><IoLogInOutline /> Sign In</button>
       </form>

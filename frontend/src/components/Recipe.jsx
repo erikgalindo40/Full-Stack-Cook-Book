@@ -1,6 +1,7 @@
 import { HiOutlineDotsHorizontal } from 'react-icons/hi'
 import { useState } from 'react'
 import { ImCross } from 'react-icons/im'
+import Spinner from './Spinner'
 
 function Recipe({ recipeName, time, description, directions, ingredients, recipeID, setRecipeModalInfo, setRecipeList }) {
     const parsedIngredients = JSON.parse(ingredients)
@@ -91,7 +92,7 @@ function Recipe({ recipeName, time, description, directions, ingredients, recipe
         <button onClick={(e)=>onDeleteRecipe(e, recipeID)} className='recipe-modal-yes-delete-button modal-button'>Yes</button>
         <button onClick={()=>{setDeleteRecipeModal(!deleteRecipeModal)}} className='recipe-modal-no-delete-button modal-button'>No</button>
     </div>}
-    {deletePending&&<div className='recipe-modal'><p>Deleting...</p></div>}
+    {deletePending&&<div className='recipe-modal delete-loading-modal'><p>Deleting...</p><Spinner/></div>}
     {deleteSuccess&&<div className='recipe-modal'><button className='close-modal-button' onClick={()=>{
         setRecipeList(prevState=>prevState.filter(recipe=>recipe._id!==recipeID))
         setDeleteSuccess(false)}}><ImCross/></button><p>Delete Successful</p></div>}
