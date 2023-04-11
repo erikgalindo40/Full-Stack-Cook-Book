@@ -52,7 +52,7 @@ function Recipe({ recipeName, time, description, directions, ingredients, recipe
                 <p className='recipe-time'>{time}</p>
             </div>
             <div onClick={()=>setIsRecipeModal(!isRecipeModal)} 
-            className='recipe-edit-button'>
+            className='recipe-edit-button' tabIndex={0}>
                 <HiOutlineDotsHorizontal/>
             </div>
         </div>

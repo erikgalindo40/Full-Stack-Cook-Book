@@ -44,6 +44,13 @@ const updateRecipe = asyncHandler(async (req,res) => {
         throw new Error('Recipe not found')
     }
 
+    const {name, ingredients, directions, time, description} = req.body
+
+    if (name=='' || ingredients=='' || directions=='' || description=='' || time=='') {
+        res.status(400)
+        throw new Error('Please add all fields')
+    }
+
     //check for user
     if(!req.user) {
         res.status(401)
