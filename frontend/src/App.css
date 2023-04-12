@@ -22,7 +22,7 @@ html, body, .App {
 }
 
 :root {
-  --secondary: #e2e2e2;
+  --secondary: #d3d3d3;
   --primary: #000000;
   --font-light: #EEEEEE;
   --font-dark: #000000;
@@ -54,9 +54,10 @@ html, body, .App {
 }
 .logout-button {
   padding: .5em;
-  background-color: transparent;
+  border: 2px solid var(--primary);
   border-radius: 5px;
   color: var(--font-dark);
+  background-color: transparent;
   font-weight: bold;
   transition: 150ms;
 }
@@ -68,7 +69,7 @@ html, body, .App {
   cursor: pointer;
   color: var(--font-light);
   background-color: var(--primary);
-  border-color: var(--primary);
+  transform: translateX(5px);
 }
 /********************** 
       FOOTER STYLES
@@ -289,12 +290,6 @@ html, body, .App {
     max-width: 40em;
   }
 }
-@media (min-width:1800px) {
-  .recipes {
-    margin-top: 3em;
-  }
-}
-
 /********************** 
   RECIPE FORM STYLES
 ***********************/
@@ -356,6 +351,7 @@ html, body, .App {
   margin-bottom: 1.2em;
   padding: .5em;
   background-color: var(--secondary);
+  border-radius: 3px;
 }
 .recipe-ingredient-container label {
   width: fit-content;
@@ -379,6 +375,14 @@ html, body, .App {
   max-height: 2.8rem;
 }
 /* FORM BUTTONS */
+.recipe-form-button {
+  color: var(--font-light);
+  background-color: var(--primary);
+}
+.recipe-form-button:hover, .recipe-form-button:focus {
+  background-color: var(--secondary);
+  color: var(--font-dark);
+}
 /*delete*/
 .delete-form-item-button {
   border: none;
@@ -410,14 +414,15 @@ html, body, .App {
 .recipe-add-button {
   outline: none;
   border: none;
-  background-color: var(--secondary);
+  background-color: var(--primary);
+  color: var(--font-light);
   padding-inline: 1em;
   transition: 250ms;
 }
 .recipe-add-button:hover, .recipe-add-button:focus {
   cursor: pointer;
-  color: var(--font-light);
-  background: var(--primary);
+  color: var(--font-dark);
+  background: var(--secondary);
 }
 /* OTHER */
 .stop-edit-button {
@@ -465,4 +470,8 @@ html, body, .App {
 .no-recipes-text {
   font-weight: bold;
   padding: 1em;
+}
+.recipes-title {
+  font-size: 3rem;
+  margin-top: 1em;
 }

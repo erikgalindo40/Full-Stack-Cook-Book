@@ -44,6 +44,7 @@ function Dashboard() {
     <main className='dashboard-container'>
       <RecipeForm setRecipeList={setRecipeList} recipeEditInfo={recipeModalInfo} setRecipeModalInfo={setRecipeModalInfo}/>
       {error&&<div className='recipe-modal'><button onClick={()=>setError(false)} className='close-modal-button'>x</button> There was an issue retrieving your recipes. Please try again later.</div> }
+      <h2 className='recipes-title'>Your Recipes</h2>
       {recipeList.length===0?
       (<div className='no-recipes-text'>No recipes to display yet!</div>)
       :(<ul className='recipes'>
