@@ -3,7 +3,7 @@ import Ingredient from './Ingredient'
 import Direction from './Direction'
 import { v4 } from 'uuid'
 import { BiFoodMenu } from 'react-icons/bi'
-import { GrUpdate } from 'react-icons/gr'
+import { RxUpdate } from 'react-icons/rx'
 import Spinner from './Spinner'
 
 function RecipeForm({ recipeEditInfo, setRecipeList }) {
@@ -220,7 +220,7 @@ function RecipeForm({ recipeEditInfo, setRecipeList }) {
         {recipeSuccess&& <div className='recipe-form-success-message'>Success</div> }
         {recipePending&&<Spinner />}
         {isEditing?
-        (<button onClick={(e)=>onUpdate(e, recipeEditInfo.id, {name:recipeName, description:recipeDescription, time:recipeTime, ingredients:JSON.stringify(ingredients), directions:JSON.stringify(directions)})} className='form-button recipe-form-button'><GrUpdate/> UPDATE</button>)
+        (<button onClick={(e)=>onUpdate(e, recipeEditInfo.id, {name:recipeName, description:recipeDescription, time:recipeTime, ingredients:JSON.stringify(ingredients), directions:JSON.stringify(directions)})} className='form-button recipe-form-button'><RxUpdate /> UPDATE</button>)
         :(<button onClick={(e)=>onSubmit(e, {name:recipeName, description:recipeDescription, time:recipeTime, ingredients:JSON.stringify(ingredients), directions:JSON.stringify(directions)})} className='form-button recipe-form-button'><BiFoodMenu/> CREATE</button>)}
     </form>
     )

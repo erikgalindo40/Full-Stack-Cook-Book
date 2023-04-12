@@ -360,6 +360,9 @@ html, body, .App {
 .ingredient-info {
   border: 2px solid var(--primary) !important;
 }
+.ingredient-unit::placeholder {
+  color: #535353 !important;
+}
 /* DIRECTIONS */
 .recipe-form-directions {
   display: flex;

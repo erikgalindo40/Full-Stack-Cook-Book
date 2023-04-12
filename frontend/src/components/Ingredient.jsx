@@ -7,7 +7,7 @@ function Ingredient({ unit, amount, name, keyid, onChangeRecipeIngredient, onDel
             <label htmlFor="ingredient-amount">Amount:</label>
             <input name='amount' value={amount} onChange={(e)=>onChangeRecipeIngredient(e, keyid)} className='recipe-form-input ingredient-amount ingredient-info' type="text" id='ingredient-amount'/>
             <label htmlFor="ingredient-unit">Unit:</label>
-            <input name='unit' value={unit} onChange={(e)=>onChangeRecipeIngredient(e, keyid)} className='recipe-form-input ingredient-unit ingredient-info' list='ingredient-units' id='ingredient-unit'/>
+            <input placeholder='Not Required' name='unit' value={unit} onChange={(e)=>onChangeRecipeIngredient(e, keyid)} className='recipe-form-input ingredient-unit ingredient-info' list='ingredient-units' id='ingredient-unit'/>
             <datalist id='ingredient-units'>
                 <option value="handfuls"></option>
                 <option value="pinches"></option>
