@@ -22,7 +22,7 @@ html, body, .App {
 }
 
 :root {
-  --secondary: #d3d3d3;
+  --secondary: #fcc1c1;
   --primary: #000000;
   --font-light: #EEEEEE;
   --font-dark: #000000;
@@ -179,7 +179,10 @@ html, body, .App {
   padding-bottom: .3em;
 }
 .recipe h3 {
-  padding-left: .5em;
+  padding-left: .3em;
+  margin-inline: .5em;
+  background-color: var(--secondary);
+
 }
 .recipe-header {
   display: flex;
@@ -194,7 +197,11 @@ html, body, .App {
 }
 .recipe-description {
   font-size: .87rem;
-  padding-inline: .7em;
+  margin-inline: .7em;
+  margin-block: .5em;
+  padding: .2em;
+  border: 2px solid var(--secondary);
+  font-weight: 500;
   width: fit-content;
   color: rgb(51, 51, 51);
 }
@@ -215,7 +222,10 @@ html, body, .App {
 .recipe-direction {
   list-style-position: inside;
   margin-inline: 1em;
-  margin-block: .2em;
+  margin-block: .3em;
+}
+.recipe-direction::marker {
+  font-weight: bold;
 }
 /* EDIT BUTTON STYLES */
 .recipe-edit-button {
@@ -426,6 +436,7 @@ html, body, .App {
   cursor: pointer;
   color: var(--font-dark);
   background: var(--secondary);
+  outline: 1px solid var(--primary);
 }
 /* OTHER */
 .stop-edit-button {
