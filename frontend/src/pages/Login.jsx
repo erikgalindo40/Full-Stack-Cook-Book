@@ -48,6 +48,10 @@ function Login() {
       error.json().then(err=>setErrorMessage(err.message))
     })
   }
+  const onSignInDemo = () => {
+    setLoginInfo({email:'test@gmail.com', password:'test123'})
+    setIsPending(true)
+  }
   const { email, password } = loginInfo
 
   useEffect(() => {
@@ -66,6 +70,7 @@ function Login() {
         <input type="text" onChange={onChange} value={email} name='email' id='email' placeholder='Email'/>
         <label htmlFor="password"></label>
         <input type="password" onChange={onChange} value={password} name='password' id='name' placeholder='Password'/>
+        <button onClick={onSignInDemo} className='login-demo-button form-button'>Login Demo</button>
         {isPending&&<><div className='loading-message'>Please Wait...</div><Spinner/></>}
         <p>Need an account? <Link to={'/register/'} className='form-link'>Sign up</Link></p>
         <button className='form-button'><IoLogInOutline /> Sign In</button>
