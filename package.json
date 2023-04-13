@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "concurrently --kill-others \"node backend/server.js\" \"cd ./frontend/ && npm run start\"",
-    "build": "npm install; cd ./frontend/ && npm install && npm run build",
+    "build": "npm install && (cd frontend && npm install && npm run build)",
     "server": "nodemon backend/server.js"
   },
   "keywords": [],
