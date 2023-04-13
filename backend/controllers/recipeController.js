@@ -16,7 +16,7 @@ const getRecipes = asyncHandler(async (req,res) => {
 const createRecipe = asyncHandler(async (req,res) => {
     const {name, ingredients, directions, time, description} = req.body
 
-    if (name=='' || ingredients=='' || directions=='' || description=='' || time=='') {
+    if (name=='' || ingredients=='[]' || directions=='[]' || description=='' || time=='') {
         res.status(400)
         throw new Error('Please add all fields')
     }
@@ -46,7 +46,7 @@ const updateRecipe = asyncHandler(async (req,res) => {
 
     const {name, ingredients, directions, time, description} = req.body
 
-    if (name=='' || ingredients=='' || directions=='' || description=='' || time=='') {
+    if (name=='' || ingredients=='[]' || directions=='[]' || description=='' || time=='') {
         res.status(400)
         throw new Error('Please add all fields')
     }
