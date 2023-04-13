@@ -10,7 +10,7 @@ function Dashboard() {
   const [error, setError] = useState(false)
 
   useEffect(() => {
-    console.log('ran effect')
+    // console.log('ran effect')
     if(!localStorage.getItem('user')) {
       navigate('/Login')
       return

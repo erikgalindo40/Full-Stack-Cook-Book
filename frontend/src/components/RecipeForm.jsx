@@ -153,7 +153,7 @@ function RecipeForm({ recipeEditInfo, setRecipeList }) {
         } else {
             resetRecipeState()
         }
-        console.log('ran recipe effect')
+        // console.log('ran recipe effect')
     }, [recipeEditInfo])
     
 
