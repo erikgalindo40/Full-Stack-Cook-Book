@@ -4,11 +4,11 @@
   "description": "Cook book site for users to store their own recipes",
   "main": "server.js",
   "scripts": {
-    "start": "node backend/server.js",
+    "start": "npm-run-all -p server client",
     "client": "cd ./frontend && npm run start",
-    "powerup": "npm-run-all -p server client",
-    "build": "cd ./frontend && npm install && npm run build",
-    "server": "nodemon backend/server.js"
+    "server": "node backend/server.js",
+    "build": "npm install && cd ./frontend && npm install && npm run build",
+    "devServer": "nodemon backend/server.js"
   },
   "keywords": [],
   "author": "Erik Galindo",
