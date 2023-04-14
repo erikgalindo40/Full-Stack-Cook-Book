@@ -18,7 +18,7 @@ function Dashboard() {
 
     const user = JSON.parse(localStorage.getItem('user'))
 
-    fetch('http://localhost:5000/api/recipes', {
+    fetch('/api/recipes', {
       headers:{
         authorization: `Bearer ${user.token}`
       }

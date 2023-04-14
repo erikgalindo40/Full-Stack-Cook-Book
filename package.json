@@ -1,6 +1,7 @@
 {
   "name": "fullstackcookbook",
   "version": "1.0.0",
+  "proxy": "http://localhost:5000",
   "description": "Cook book site for users to store their own recipes",
   "main": "server.js",
   "scripts": {

@@ -18,7 +18,7 @@ function Recipe({ recipeName, time, description, directions, ingredients, recipe
         setDeletePending(true)
         const user = JSON.parse(localStorage.getItem('user'))
     
-        fetch(`http://localhost:5000/api/recipes/${id}`, {
+        fetch(`/api/recipes/${id}`, {
             method:'DELETE',
             headers:{
             authorization: `Bearer ${user.token}`

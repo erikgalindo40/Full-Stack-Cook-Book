@@ -67,7 +67,7 @@ function RecipeForm({ recipeEditInfo, setRecipeList }) {
         setRecipePending(true)
         const user = JSON.parse(localStorage.getItem('user'))
         
-        fetch('http://localhost:5000/api/recipes',{
+        fetch('/api/recipes',{
             method:'POST',
             headers: {
                 'content-type': 'application/json',
@@ -101,7 +101,7 @@ function RecipeForm({ recipeEditInfo, setRecipeList }) {
         setRecipePending(true)
         const user = JSON.parse(localStorage.getItem('user'))
         
-        fetch(`http://localhost:5000/api/recipes/${id}`,{
+        fetch(`/api/recipes/${id}`,{
             method:'PUT',
             headers: {
                 'content-type': 'application/json',

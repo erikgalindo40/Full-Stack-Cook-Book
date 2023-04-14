@@ -32,7 +32,7 @@ function Register() {
       return
     }
     setIsPending(true)
-    fetch('http://localhost:5000/api/users', {
+    fetch('/api/users', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
