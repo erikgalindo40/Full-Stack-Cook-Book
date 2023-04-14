@@ -19,4 +19,4 @@ app.use('/api/users', require('./routes/userRoutes'))
 
 app.use(errorHandler) //overwritten errorHandler HAS to go under routes to work properly
 
-app.listen(5000, ()=>console.log(`running on  port ${port}`))
+app.listen(5001, ()=>console.log(`running on  port ${port}`))
