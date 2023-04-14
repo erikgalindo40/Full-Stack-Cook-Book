@@ -7,7 +7,7 @@
     "start": "npm-run-all -p server client",
     "client": "cd ./frontend && npm run start",
     "server": "node backend/server.js",
-    "build": "npm install && cd ./frontend && npm install && npm run build",
+    "build": "(npm install) && (cd frontend && npm install && npm run build)",
     "devServer": "nodemon backend/server.js"
   },
   "keywords": [],
