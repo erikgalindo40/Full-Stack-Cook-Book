@@ -4,7 +4,7 @@
   "description": "Cook book site for users to store their own recipes",
   "main": "server.js",
   "scripts": {
-    "start": "npm-run-all -p server client",
+    "start": "node backend/server.js",
     "client": "cd ./frontend && npm run start",
     "server": "node backend/server.js",
     "build": "(npm install) && (cd frontend && npm install && npm run build)",
